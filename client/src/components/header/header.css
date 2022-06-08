@@ -1,0 +1,107 @@
+.header {
+    background: linear-gradient(to right, #52026e, #00003e);
+    padding: 10px 0;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerLogo {
+    display: none;
+}
+
+.headerLogoMobile {
+    width: 150px;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to right, #52026e, #00003e);
+    color: white;
+    font-family: var(--oswald);
+    font-size: 20px;
+    text-align: center;
+    padding-top: 50px;
+    transform: translateX(100%);
+    transition: .5s ease-in-out;
+}
+
+.navList {
+    list-style: none;
+    padding: 0;
+}
+
+.navBtn {
+    width: 20px;
+    height: 21px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+.navBtn span {
+    width: 100%;
+    height: 2px;
+    background: var(--pink);
+}
+
+.navCloseButton {
+    width: 30px;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 992px) {
+
+    .headerLogo {
+        display: block;
+        width: 150px;
+    }
+    
+    .headerLogoMobile {
+        display: none;
+    }
+
+    .nav {
+        position: relative;
+        top: unset;
+        left: unset;
+        width: initial;
+        height: initial;
+        background: none;
+        color: var(--pink);
+        text-align: left;
+        padding-top: 0;
+        transform: translateX(0) !important;
+    }
+
+    .navList {
+        display: flex;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--blue);
+    }
+
+    .navListItem {
+        margin: 0 20px;
+    }
+
+    .navLink {
+        transition: .2s ease-in-out;
+    }
+
+    .navLink:hover {
+        color: var(--lightblue);
+    }
+
+    .navBtn,
+    .navCloseButton {
+        display: none;
+    }
+}

@@ -1,7 +1,11 @@
-/* 
-font-family: 'Open Sans', sans-serif;
-font-family: 'Oswald', sans-serif; 
-*/
+:root {
+  --open: 'Open Sans', sans-serif;
+  --oswald: 'Oswald', sans-serif; 
+
+  --pink: #ff00ff;
+  --lightblue: #01ffff;
+  --blue: #4272d6;
+}
 
 * {
   box-sizing: border-box;
@@ -9,4 +13,23 @@ font-family: 'Oswald', sans-serif;
 
 body {
   margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+@media screen and (min-width: 768px) {
+
+  .container {
+    padding: 0 20px;
+  }
 }
