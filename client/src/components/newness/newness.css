@@ -1,0 +1,90 @@
+.newness {
+    background: url(../../images/white-bg.webp) no-repeat center center;
+    background-size: cover;
+    padding-bottom: 50px;
+}
+
+.newness-slider {
+    width: 100%;
+    margin: auto;
+    max-width: 1000px;
+}
+
+.newness-page {
+    border-radius: 10px;
+    background: linear-gradient(to top, #52026e, #00003e);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.newness-image img {
+    width: 200px;
+}
+
+.newness-program h4 {
+    color: var(--pink);
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.newness-program .button {
+    margin-bottom: 30px;
+}
+
+.newness-desc {
+    margin-bottom: 50px;
+}
+
+.newness-desc span {
+    font-style: italic;
+    font-weight: 600;
+}
+
+@media screen and (min-width: 500px) {
+    .newness-slider {
+        padding: 50px 20px 0;
+    }
+
+    .newness-page {
+        padding: 20px 70px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .newness-page {
+        display: flex;
+        align-items: center;
+        padding: 50px 70px;
+        height: 520px;
+    }
+
+    .newness-program {
+        flex: 1;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+        border-right: 4px solid var(--blue);
+    }
+
+    .newness-image img {
+        width: 300px;
+    }
+
+    .newness-desc {
+        flex: 1;
+        margin-bottom: 0;
+        text-align: left;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .newness-desc p {
+        margin: 10px 0;
+    }
+}

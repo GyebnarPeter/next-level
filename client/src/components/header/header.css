@@ -1,5 +1,5 @@
 .header {
-    background: linear-gradient(to right, #52026e, #00003e);
+    background: var(--gradient);
     padding: 10px 0;
 }
 
@@ -23,9 +23,10 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(to right, #52026e, #00003e);
+    background: var(--gradient);
     color: white;
     font-family: var(--oswald);
+    letter-spacing: 1px;
     font-size: 20px;
     text-align: center;
     padding-top: 50px;

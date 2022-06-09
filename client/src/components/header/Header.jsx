@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./header.css";
-import logo from "../../images/next-level-logo.svg";
-import mobileLogo from "../../images/next-level-mobile-logo.svg";
+import logo from "../../images/next-level-logo.webp";
+import mobileLogo from "../../images/next-level-mobile-logo.webp";
 import navCloseButton from "../../images/close.png";
 
 export default function Header() {

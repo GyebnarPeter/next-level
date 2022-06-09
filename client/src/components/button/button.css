@@ -1,0 +1,15 @@
+.button {
+    color: var(--lightblue);
+    border: 2px solid var(--lightblue);
+    font-family: var(--oswald);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    display: inline-block;
+    transition: .3s ease-in-out;
+}
+
+.button:hover {
+    color: var(--pink);
+    border: 2px solid var(--pink);
+}
