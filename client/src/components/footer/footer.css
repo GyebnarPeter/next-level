@@ -1,0 +1,15 @@
+.footer {
+    background: var(--gradient);
+    text-align: center;
+    padding: 50px 0 30px;
+}
+
+.footer img {
+    width: 200px;
+}
+
+@media screen and (min-width: 768px) {
+    .footer img {
+        width: 300px;
+    }
+} 
