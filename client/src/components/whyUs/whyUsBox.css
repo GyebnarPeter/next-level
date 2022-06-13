@@ -1,0 +1,35 @@
+.whyUsBox {
+    background: rgba(255, 255, 255, .3);
+    padding: 20px 40px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+    max-width: 350px;
+}
+
+.fadeBox:nth-child(1) img { width: 100px }
+.fadeBox:nth-child(2) img { width: 90px }
+.fadeBox:nth-child(3) img { width: 70px }
+.fadeBox:nth-child(4) img { width: 90px }
+.fadeBox:nth-child(5) img { width: 90px }
+.fadeBox:nth-child(6) img { width: 90px }
+
+.whyUsBox p {
+    font-weight: 300;
+}
+
+@media screen and (min-width: 768px) {
+    .whyUsBox {
+        height: 390px;
+        margin: 10px;
+        padding: 20px 50px;
+    }
+
+    .whyUsBox figure {
+        height: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+    }
+}

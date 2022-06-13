@@ -8,19 +8,3 @@
     align-items: center;
     background: white;
 }
-
-.title h2 {
-    font-size: 22px;
-}
-
-@media screen and (min-width: 768px) {
-    .title h2 {
-        font-size: 2rem;
-    }
-}
-
-@media screen and (min-width: 992px) {
-    .title h2 {
-        font-size: 2.5rem;
-    }
-}
