@@ -6,7 +6,11 @@ export default function Sale() {
   return (
     <div className="sale">
         <Title name="Aktuális akciók" />
-        <FirstSale />
+        <div className="container">
+          <FirstSale />
+          <FirstSale />
+          <FirstSale />
+        </div>
     </div>
   )
 }
