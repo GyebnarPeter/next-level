@@ -1,6 +1,7 @@
 import Title from "../title/Title";
 import FirstSale from "./FirstSale";
 import "./sale.css";
+import Vote from "./Vote";
 
 export default function Sale() {
   return (
@@ -8,8 +9,7 @@ export default function Sale() {
         <Title name="Aktuális akciók" />
         <div className="container">
           <FirstSale />
-          <FirstSale />
-          <FirstSale />
+          <Vote />
         </div>
     </div>
   )

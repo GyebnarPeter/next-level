@@ -1,0 +1,124 @@
+.voteItem {
+    margin-bottom: 50px;
+}
+
+.voteItem label {
+    color: var(--pink);
+    font-family: var(--oswald);
+    letter-spacing: 1px;
+    font-size: 22px;
+    text-transform: uppercase;
+    display: block;
+}
+
+.voteItem label span {
+    color: var(--lightblue);
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.voteBtn {
+    margin-top: 10px;
+    background: none;
+    border: 2px solid var(--blue);
+    color: var(--blue);
+    font-family: var(--oswald);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    position: relative;
+}
+
+.voteBtn span {
+    position: absolute;
+    content: "";
+    background: white;
+    top: -55px;
+    left: 20px;
+    width: 100px;
+    height: 50px;
+    text-transform: initial;
+    font-family: var(--open);
+    letter-spacing: initial;
+    display: none;
+    align-items: center;
+    border-radius: 10px;
+    font-weight: 700;
+    line-height: 1;
+    z-index: 100;
+}
+
+.voteText {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 1);
+    padding: 20px;
+    color: black;
+    overflow: scroll;
+    z-index: 1000;
+    display: none;
+}
+
+.voteText img {
+    width: 30px;
+    display: block;
+    margin: 30px auto;
+    cursor: pointer;
+}
+
+.voteText__wrp {
+    font-size: 16px;
+    font-weight: 500;
+    background: var(--gradient);
+    padding: 20px;
+    color: white;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+
+.voteText h4 {
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.voteText p {
+    font-size: 14px;
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .voteItem {
+        display: flex;
+        justify-content: space-between;
+        padding-right: 20px;
+        margin: 0 0 20px 0;
+    }
+
+    .voteBtn {
+        margin-top: 0;
+        height: 40px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .voteBtn:hover span {
+        display: flex;
+    }
+
+    .voteText {
+        background: rgba(255, 255, 255, .9);
+    }
+
+    .voteText__wrp {
+        transform: translateX(10px);
+    }
+}
