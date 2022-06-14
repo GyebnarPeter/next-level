@@ -32,6 +32,14 @@ class AdminController extends Controller
         }
     }
 
+    function update(Request $request, $id)
+    {
+        $admin = Admin::find($id);
+        $admin->update($request->all());
+
+        return $admin;
+    }
+
     function getAll()
     {
         $admins = Admin::all();

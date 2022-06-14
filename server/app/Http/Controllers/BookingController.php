@@ -44,6 +44,14 @@ class BookingController extends Controller
         }
     }
 
+    function update(Request $request, $id)
+    {
+        $booking = Booking::find($id);
+        $booking->update($request->all());
+
+        return $booking;
+    }
+
     function get($id)
     {
         $booking = Booking::find($id);
