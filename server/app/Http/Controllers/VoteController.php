@@ -28,6 +28,14 @@ class VoteController extends Controller
         }
     }
 
+    function update($id)
+    {
+        $vote = Vote::find($id);
+        $vote->increment('count');
+
+        return $vote;
+    }
+
     function get($id)
     {
         $vote = Vote::find($id);

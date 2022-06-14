@@ -23,12 +23,14 @@ Route::post('/create-admin', [AdminController::class, 'create']);
 Route::delete('/delete-admin/{id}', [AdminController::class, 'delete']);
 Route::get('/get-all-admins', [AdminController::class, 'getAll']);
 Route::get('/get-admin/{id}', [AdminController::class, 'get']);
+Route::put('/update-admin/{id}', [AdminController::class, 'update']);
 
 //votes
 Route::post('/add-vote', [VoteController::class, 'create']);
 Route::delete('/delete-vote/{id}', [VoteController::class, 'delete']);
 Route::get('/get-all-votes', [VoteController::class, 'getAll']);
 Route::get('/get-vote/{id}', [VoteController::class, 'get']);
+Route::post('/update-vote/{id}', [VoteController::class, 'update']);
 
 //voters
 Route::post('/add-voter', [VoterController::class, 'create']);
@@ -41,6 +43,7 @@ Route::post('/add-booking', [BookingController::class, 'create']);
 Route::delete('/delete-booking/{id}', [BookingController::class, 'delete']);
 Route::get('/get-all-bookings', [BookingController::class, 'getAll']);
 Route::get('/get-booking/{id}', [BookingController::class, 'get']);
+Route::put('/update-booking/{id}', [BookingController::class, 'update']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
