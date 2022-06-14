@@ -1,0 +1,30 @@
+.about {
+    background: url(../../images/white-bg.webp) no-repeat center center;
+    background-size: cover;
+    padding-bottom: 50px;
+    padding: 20px;
+}
+
+.aboutText {
+    background-color: white;
+    padding: 20px;
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+}
+
+.about h3 {
+    color: var(--purple);
+    font-style: italic;
+}
+
+.about p {
+    color: var(--purple);
+}
+
+@media screen and (min-width: 768px) {
+    .about {
+        padding: 50px 20px;
+    }
+}
+
