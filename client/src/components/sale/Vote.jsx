@@ -6,18 +6,19 @@ const parse = require("html-react-parser");
 const axios = require('axios').default;
 
 export default function Vote() {
-    const [value, setValue] = useState("val");
+    const [value, setValue] = useState("");
+    const [email, setEmail] = useState("");
 
     const submitForm = (e) => {
         e.preventDefault();
 
-        const obj = {
-            email: "email@ujabb.hu"
+        const data = {
+            email: email
         }
 
         const url = `http://localhost:8000/api/update-vote/${value}`;
 
-        axios.put(url, obj)
+        axios.put(url, data)
             .then(function (response) {
                 console.log(response.data);
             })
@@ -25,10 +26,6 @@ export default function Vote() {
                 console.log(error);
             });
     };
-
-    useEffect(() => {
-        console.log(value);
-    }, [value]);
 
     return (
         <div className="vote saleItem">
@@ -77,7 +74,11 @@ export default function Vote() {
                 </div>
                 <div className="voteItems">
                     <div className="voteBox">
-                        <input type="email" placeholder="Email cím" />
+                        <input 
+                            type="email" 
+                            placeholder="Email cím" 
+                            onChange={ (e) => setEmail(e.target.value) }
+                        />
                         <p>
                             A szavazók között Next Level ajándékutalványokat
                             sorsolunk majd ki!
