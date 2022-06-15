@@ -56,10 +56,11 @@ class VoteController extends Controller
     function getAll()
     {
         $votes = Vote::all();
+        $array = array();
 
         foreach ($votes as $vote)
         {
-            $array[] = [$vote->name, $vote->count];
+             array_push($array, $vote);
         }
 
         return $array;
