@@ -19,7 +19,8 @@ export default function Vote() {
             method: "PUT", // or 'PUT'
             headers: {
                 "Content-Type": "application/json",
-                "Accept": 'application/json'
+                "Accept": "application/json"
+
             },
             body: JSON.stringify(value),
         })
