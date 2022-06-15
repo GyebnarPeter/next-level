@@ -42,7 +42,7 @@ class VoteController extends Controller
             $voter->save();
             return $this->getAll();
         } else {
-            return 'Már szavaztál!';
+            return 'voted';
         }
     }
 
@@ -59,7 +59,7 @@ class VoteController extends Controller
 
         foreach ($votes as $vote)
         {
-            $array[] = [$vote];
+            $array[] = [$vote->name, $vote->count];
         }
 
         return $array;
