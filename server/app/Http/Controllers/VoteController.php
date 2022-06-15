@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vote;
+use App\Models\Voter;
 use Illuminate\Http\Request;
 
 class VoteController extends Controller
@@ -26,6 +27,14 @@ class VoteController extends Controller
         } else {
             return "Sikertelen törlés: " . $id;
         }
+    }
+
+    function update(Request $request, $id)
+    {
+        $vote = Vote::find($id);
+        $vote->increment('count');
+
+        return $vote;
     }
 
     function get($id)
