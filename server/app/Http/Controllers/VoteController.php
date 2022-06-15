@@ -29,7 +29,7 @@ class VoteController extends Controller
         }
     }
 
-    function update(Request $request, $id)
+    function update($id)
     {
         $vote = Vote::find($id);
         $vote->increment('count');
