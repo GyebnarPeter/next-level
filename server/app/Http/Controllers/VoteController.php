@@ -39,9 +39,9 @@ class VoteController extends Controller
             $voter = new Voter();
             $voter->email = $request->input('email');
             $voter->save();
-            return "Szavazat sikeresen mentve!";
+            return VoteController::getAll();
         } else {
-            return "Már szavaztál";
+            return 'Már szavaztál!';
         }
     }
 
