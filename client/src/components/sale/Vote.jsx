@@ -15,10 +15,11 @@ export default function Vote() {
             body: {},
         }); */
 
-        fetch(`http://localhost:8000/server/api/update-vote/${value}`, {
+        fetch(`http://localhost:8000/api/update-vote/${value}`, {
             method: "PUT", // or 'PUT'
             headers: {
                 "Content-Type": "application/json",
+                "Accept": "application/json"
             },
             body: JSON.stringify(value),
         })
