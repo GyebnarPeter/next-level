@@ -18,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
 //admin
 Route::post('/create-admin', [AdminController::class, 'create']);
 Route::delete('/delete-admin/{id}', [AdminController::class, 'delete']);
@@ -30,7 +34,7 @@ Route::post('/add-vote', [VoteController::class, 'create']);
 Route::delete('/delete-vote/{id}', [VoteController::class, 'delete']);
 Route::get('/get-all-votes', [VoteController::class, 'getAll']);
 Route::get('/get-vote/{id}', [VoteController::class, 'get']);
-Route::post('/update-vote/{id}', [VoteController::class, 'update']);
+Route::put('/update-vote/{id}', [VoteController::class, 'update']);
 
 //voters
 Route::post('/add-voter', [VoterController::class, 'create']);
@@ -45,6 +49,5 @@ Route::get('/get-all-bookings', [BookingController::class, 'getAll']);
 Route::get('/get-booking/{id}', [BookingController::class, 'get']);
 Route::put('/update-booking/{id}', [BookingController::class, 'update']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//increase vote and insert email
+//Route::group()

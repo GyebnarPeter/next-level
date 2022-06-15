@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vote;
+use App\Models\Voter;
 use Illuminate\Http\Request;
 
 class VoteController extends Controller
@@ -28,7 +29,7 @@ class VoteController extends Controller
         }
     }
 
-    function update($id)
+    function update(Request $request, $id)
     {
         $vote = Vote::find($id);
         $vote->increment('count');
