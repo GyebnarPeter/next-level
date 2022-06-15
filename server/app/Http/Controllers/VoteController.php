@@ -32,14 +32,15 @@ class VoteController extends Controller
 
     function update(Request $request, $id)
     {
-        $email = DB::table('voters')->where('email', $request->input('email'))->first();
-        if (!$email) {
+        $email = $request->input('email');
+        $result = DB::table('voters')->where('email', $email)->first();
+        if (!$result) {
             $vote = Vote::find($id);
             $vote->increment('count');
             $voter = new Voter();
-            $voter->email = $request->input('email');
+            $voter->email = $email;
             $voter->save();
-            return VoteController::getAll();
+            return $this->getAll();
         } else {
             return 'Már szavaztál!';
         }
