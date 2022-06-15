@@ -3,6 +3,7 @@ import "./vote.css";
 import VoteItem from "./VoteItem";
 import voteText from "./VoteText";
 const parse = require("html-react-parser");
+const axios = require('axios').default;
 
 export default function Vote() {
     const [value, setValue] = useState("val");
@@ -10,25 +11,18 @@ export default function Vote() {
     const submitForm = (e) => {
         e.preventDefault();
 
-        /* fetch(`http://localhost:8000/server/api/update-vote/${value}`, {
-            method: "POST",
-            body: {},
-        }); */
+        const obj = {
+            email: "email@ujabb.hu"
+        }
 
-        fetch(`http://localhost:8000/api/update-vote/${value}`, {
-            method: "PUT", // or 'PUT'
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify(value),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log("Success:", data);
+        const url = `http://localhost:8000/api/update-vote/${value}`;
+
+        axios.put(url, obj)
+            .then(function (response) {
+                console.log(response.data);
             })
-            .catch((error) => {
-                console.error("Error:", error);
+            .catch(function (error) {
+                console.log(error);
             });
     };
 

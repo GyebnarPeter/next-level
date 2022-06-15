@@ -11,10 +11,7 @@ function VoteItem(props) {
     }
 
     return (
-        <div 
-            className="voteItem" 
-            onClick={ () => setIsOpen(!isOpen) }
-        >
+        <div className="voteItem">
             <div className="voteInput">
                 <input 
                     type="radio" 
@@ -41,6 +38,7 @@ function VoteItem(props) {
             <div 
                 className="voteText" 
                 style={ isOpen ? {display: 'flex'} : {display: 'none'}}
+                onClick={ () => setIsOpen(!isOpen) }
             >
                 <div className="voteText__wrp">
                     <img 
