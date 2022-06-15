@@ -29,17 +29,17 @@ class VoteController extends Controller
         }
     }
 
-    function update($id)
+    function update(Request $request, $id)
     {
         $vote = Vote::find($id);
         $vote->increment('count');
-//        {
-//            $voter = new Voter();
-//
-//            $voter->email = $request->input('email');
-//            $voter->save();
-//        }
-//
+        {
+            $voter = new Voter();
+
+            $voter->email = $request->input('email');
+            $voter->save();
+        }
+
         return "Szavazat sikeresen mentve!";
     }
 
