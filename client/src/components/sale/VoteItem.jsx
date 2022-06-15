@@ -6,6 +6,10 @@ import { useState } from "react";
 function VoteItem(props) {
     const [isOpen, setIsOpen] = useState(false);
 
+    const inputValueHandler = (e) => {
+        props.setValue(e.target.value);
+    }
+
     return (
         <div 
             className="voteItem" 
@@ -16,6 +20,8 @@ function VoteItem(props) {
                     type="radio" 
                     name="vote" 
                     id={ props.id } 
+                    value={ props.value }
+                    onChange={ inputValueHandler }
                 />
                 <label htmlFor={ props.id }>
                     { props.name }
