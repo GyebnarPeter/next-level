@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import "./vote.css";
+import { useState } from "react";
 import VoteItem from "./VoteItem";
 import voteText from "./VoteText";
 const parse = require("html-react-parser");
@@ -12,11 +12,10 @@ export default function Vote() {
     const submitForm = (e) => {
         e.preventDefault();
 
+        const url = `http://localhost:8000/api/update-vote/${value}`;
         const data = {
             email: email
         }
-
-        const url = `http://localhost:8000/api/update-vote/${value}`;
 
         axios.put(url, data)
             .then(function (response) {
