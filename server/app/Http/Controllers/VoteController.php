@@ -33,8 +33,14 @@ class VoteController extends Controller
     {
         $vote = Vote::find($id);
         $vote->increment('count');
-
-        return $vote;
+//        {
+//            $voter = new Voter();
+//
+//            $voter->email = $request->input('email');
+//            $voter->save();
+//        }
+//
+        return "Szavazat sikeresen mentve!";
     }
 
     function get($id)

@@ -49,5 +49,3 @@ Route::get('/get-all-bookings', [BookingController::class, 'getAll']);
 Route::get('/get-booking/{id}', [BookingController::class, 'get']);
 Route::put('/update-booking/{id}', [BookingController::class, 'update']);
 
-//increase vote and insert email
-//Route::group()
