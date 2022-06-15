@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Vote;
 use App\Models\Voter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class VoteController extends Controller
 {
@@ -31,16 +32,17 @@ class VoteController extends Controller
 
     function update(Request $request, $id)
     {
-        $vote = Vote::find($id);
-         if($vote->increment('count'))
-//        {
-//            $voter = new Voter();
-//
-//            $voter->email = $request->input('email');
-//            $voter->save();
-//        }
-
-        return "Szavazat sikeresen mentve!";
+        $email = DB::table('voters')->where('email', $request->input('email'))->first();
+        if (!$email) {
+            $vote = Vote::find($id);
+            $vote->increment('count');
+            $voter = new Voter();
+            $voter->email = $request->input('email');
+            $voter->save();
+            return "Szavazat sikeresen mentve!";
+        } else {
+            return "Már szavaztál";
+        }
     }
 
     function get($id)
