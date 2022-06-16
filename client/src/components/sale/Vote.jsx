@@ -8,9 +8,9 @@ export default function Vote() {
     const [sendForm, setSendForm] = useState(false);
     const [voteState, setVoteState] = useState([]);
 
-    useEffect( () => {
+    /* useEffect( () => {
         console.log(voteState)
-    }, [voteState])
+    }, [voteState]) */
 
     return (
         <div className="vote saleItem">

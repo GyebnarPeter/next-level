@@ -10,6 +10,11 @@ function VoteItem(props) {
         props.setValue(e.target.value);
     }
 
+    const voteButtonHandler = (e) => {
+        e.preventDefault();
+        setIsOpen(!isOpen);
+    }
+
     return (
         <div className="voteItem">
             <div className="voteInput">
@@ -27,7 +32,7 @@ function VoteItem(props) {
             </div>
             <button 
                 className="voteBtn" 
-                onClick={ () => setIsOpen(!isOpen) }
+                onClick={ voteButtonHandler }
             >
                 Részletek
                 <span>

@@ -19,18 +19,14 @@ function VoteForm({ setSendForm, setVoteState }) {
         } else {
             const url = `http://localhost:8000/api/update-vote/${value}`;
             const data = {
-                email: email,
+                email: email
             };
     
             axios
                 .put(url, data)
                 .then(function (response) {
-                    if(response.data === "voted") {
-                        message.current.innerText = "Ezzel az email címmel már szavaztál!";
-                    } else {
-                        setVoteState(response.data);
-                        setSendForm(true);
-                    }
+                    setVoteState(response.data);
+                    setSendForm(true);
                 })
                 .catch(function (error) {
                     console.log(error);
