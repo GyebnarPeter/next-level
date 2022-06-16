@@ -42,7 +42,7 @@ class VoteController extends Controller
             $voter->save();
             return $this->getAll();
         } else {
-            return 'voted';
+            return ["voted", $this->getAll()];
         }
     }
 
