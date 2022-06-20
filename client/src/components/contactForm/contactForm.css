@@ -1,0 +1,11 @@
+.contactForm {
+    background: var(--gradient);
+    padding-top: 50px;
+}
+
+.contactForm h2 {
+    margin: 0;
+    text-transform: uppercase;
+    color: var(--pink);
+    text-align: center;
+}

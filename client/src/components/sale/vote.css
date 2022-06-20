@@ -3,98 +3,9 @@
     max-width: 450px;
 }
 
-.voteItems input[type="email"] {
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    margin-top: 40px;
-}
-
-.voteItems p {
-    font-size: 12px;
-}
-
-.voteItems input[type="submit"] {
-    border: 2px solid var(--pink);
-    color: var(--pink);
-    font-family: var(--oswald);
-    letter-spacing: 1px;
-    background: none;
-    text-transform: uppercase;
-    padding: 10px 20px;
-    margin-top: 30px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.vote input[type="radio"] {
-    -webkit-appearance: none;
-    appearance: none;
-    margin: 0 auto 10px;
-    font: inherit;
-    color: white;
-    width: 1.15em;
-    height: 1.15em;
-    border: 0.15em solid var(--pink);
-    transform: translateY(8px);
-    display: grid;
-    place-content: center;
-}
-  
-.vote input[type="radio"]::before {
-    content: "";
-    width: 20px;
-    height: 20px;
-    transform: scale(0);
-    transition: 120ms transform ease-in-out;
-}
-
-.vote input[type="radio"]:checked::before {
-    transform: scale(1);
-}
-
-.vote input[type="radio"]:focus {
-    outline: max(2px, 0.15em) solid white;
-    outline-offset: max(2px, 0.15em);
-}
-
 @media screen and (min-width: 768px) {
     .vote {
         flex-direction: column;
-    }
-
-    .voteItems {
-        display: flex;
-    }
-
-    .voteItems input + p {
-        max-width: 300px;
-    }
-
-    .voteItems input[type="email"] {
-        width: 100%;
-        max-width: 350px;
-    }
-
-    .voteBox {
-        flex: 1;
-        text-align: left;
-    }
-
-    .voteInput {
-        display: flex;
-        padding-right: 20px;
-    }
-
-    .voteInput label {
-        margin-left: 10px;
-    }
-
-    .voteSubmitBox {
-        display: flex;
-        align-items: end;
-        justify-content: end;
-        padding: 20px;
     }
 }
 

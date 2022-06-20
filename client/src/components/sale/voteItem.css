@@ -121,4 +121,8 @@
     .voteText__wrp {
         transform: translateX(10px);
     }
+
+    .voteText__wrp p {
+        font-size: 14px !important;
+    }
 }
