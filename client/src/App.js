@@ -7,6 +7,7 @@ import UniqueOffers from "./pages/uniqueOffers/UniqueOffers";
 import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
 import Footer from "./components/footer/Footer";
+import Counterpart from "./pages/counterpart/Counterpart";
 
 function App() {
     return (

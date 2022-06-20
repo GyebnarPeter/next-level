@@ -7,6 +7,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Mail;
 
 class ContactMail extends Mailable
 {
@@ -30,10 +31,11 @@ class ContactMail extends Mailable
     public function build(Request $request)
     {
         return $this
+            ->from('info@nextlevel.hu')
             ->subject('Megkaptuk az üzeneted!')
             ->markdown('mail.contact-mail', [
-//            'name' => $request->input('name')
-        'name' => 'Kis János'
+                'name' => $request->input('name'),
+                'email' => $request->input('email')
         ]);
     }
 }

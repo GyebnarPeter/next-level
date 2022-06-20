@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\VoteController;
 use App\Http\Controllers\VoterController;
+use App\Mail\ContactMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -49,3 +51,5 @@ Route::get('/get-all-bookings', [BookingController::class, 'getAll']);
 Route::get('/get-booking/{id}', [BookingController::class, 'get']);
 Route::put('/update-booking/{id}', [BookingController::class, 'update']);
 
+//email
+Route::post('/contact-form', [EmailController::class, 'mail']);

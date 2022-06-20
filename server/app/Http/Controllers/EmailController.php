@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Mail\AdminMail;
+use App\Mail\ContactMail;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+
+class EmailController extends Controller
+{
+    //
+
+    public function mail(Request $request)
+    {
+
+        $email = $request->input('email');
+
+        //Mail Function
+        if (Mail::to($email)->send(new ContactMail()) && Mail::to('info@nextlevel.hu')->send(new AdminMail()))
+        {
+            return 'buci ár';
+        }
+        else
+        {
+            return 'lenyomat szín';
+        }
+
+    }
+}
