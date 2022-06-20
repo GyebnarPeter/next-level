@@ -1,0 +1,37 @@
+.counterpart {
+    background: url(../../images/white-bg.webp) no-repeat center center;
+    background-size: cover;
+    padding-bottom: 50px;
+    padding: 20px;
+}
+
+.counterpartText {
+    background-color: white;
+    padding: 20px;
+    max-width: 700px;
+    margin: auto;
+}
+
+.counterpartText p {
+    color: var(--purple);
+    text-align: center;
+}
+
+.counterpart .triangle {
+    border-top: 20px solid var(--purple);
+    margin-top: 30px;
+}
+
+.counterpart .triangle:nth-child(1) {
+    margin-top: 20px;
+    padding-bottom: 30px;
+}
+
+@media screen and (min-width: 768px) {
+    .counterpart {
+        padding: 50px 20px;
+    }
+}
+
+
+
