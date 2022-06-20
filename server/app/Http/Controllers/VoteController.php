@@ -49,7 +49,6 @@ class VoteController extends Controller
     function get($id)
     {
         $vote = Vote::find($id);
-
         return $vote;
     }
 
@@ -62,7 +61,6 @@ class VoteController extends Controller
         {
              array_push($array, $vote);
         }
-
         return $array;
     }
 
