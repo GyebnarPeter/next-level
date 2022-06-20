@@ -4,6 +4,7 @@ namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Http\Request;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
@@ -27,15 +28,14 @@ class AdminMail extends Mailable
      * @return $this
      */
 
-    public function build()
+    public function build(Request $request)
     {
         return $this
-            ->subject('Kérdés érkezett!')
+            ->subject('Új üzenete érkezett!')
             ->markdown('mail.admin-mail', [
-//            'name' => $request->input('name')
-                'name' => 'Kis János',
-                'email' => 'kisjani@freemail.hu',
-                'body' => 'Sziasztok, hány embernek ajánlott a szoba?'
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'message' => $request->input('message')
             ]);
     }
 }
