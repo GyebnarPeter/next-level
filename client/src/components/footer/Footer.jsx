@@ -1,5 +1,5 @@
 import "./footer.css";
-import logo from "../../images/next-level-logo.webp";
+import logo from "../../images/next-level-mobile-logo.webp";
 
 export default function Footer() {
     return (
