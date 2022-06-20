@@ -10,11 +10,13 @@ function VoteItem(props) {
         props.setValue(e.target.value);
     }
 
+    const voteButtonHandler = (e) => {
+        e.preventDefault();
+        setIsOpen(!isOpen);
+    }
+
     return (
-        <div 
-            className="voteItem" 
-            onClick={ () => setIsOpen(!isOpen) }
-        >
+        <div className="voteItem">
             <div className="voteInput">
                 <input 
                     type="radio" 
@@ -30,7 +32,7 @@ function VoteItem(props) {
             </div>
             <button 
                 className="voteBtn" 
-                onClick={ () => setIsOpen(!isOpen) }
+                onClick={ voteButtonHandler }
             >
                 Részletek
                 <span>
@@ -41,6 +43,7 @@ function VoteItem(props) {
             <div 
                 className="voteText" 
                 style={ isOpen ? {display: 'flex'} : {display: 'none'}}
+                onClick={ () => setIsOpen(!isOpen) }
             >
                 <div className="voteText__wrp">
                     <img 

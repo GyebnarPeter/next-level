@@ -16,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+if (\Illuminate\Support\Facades\App::environment('local')) {
+    Route::get('/playground', function (){
+        $email = 'kisjanos@freemail.hu';
+        Illuminate\Support\Facades\Mail::to($email)
+            ->send(new \App\Mail\ContactMail());
+        Illuminate\Support\Facades\Mail::to('nextlevel@nextlevel.hu')
+            ->send(new \App\Mail\AdminMail());
+        return null;
+    });
+}
+

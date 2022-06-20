@@ -1,0 +1,50 @@
+.votingStatus h3 span {
+    display: block;
+    color: var(--lightblue);
+    margin-bottom: 10px;
+}
+
+.votedName {
+    color: var(--pink);
+    font-family: var(--oswald);
+    letter-spacing: 1px;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.votedName h4 {
+    margin: 10px 0;
+}
+
+.votedName span {
+    display: block;
+    color: var(--lightblue);
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+@media screen and (min-width: 768px) {
+    .votedItems {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .votedItem {
+        width: 50%;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .votedName {
+        width: calc(100% - 100px);
+    }
+    
+    .votedStatus {
+        width: 100px;
+        display: flex;
+        justify-content: center;
+    }
+}

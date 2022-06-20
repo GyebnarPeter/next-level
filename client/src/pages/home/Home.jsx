@@ -4,6 +4,7 @@ import Sale from "../../components/sale/Sale";
 import WhyUs from "../../components/whyUs/WhyUs";
 import Faq from "../../components/faq/Faq";
 import Footer from "../../components/footer/Footer";
+import ContactForm from "../../components/contactForm/ContactForm";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         <WhyUs />
         <Sale />
         <Faq />
+        <ContactForm />
         <Footer />
       </>
   )
