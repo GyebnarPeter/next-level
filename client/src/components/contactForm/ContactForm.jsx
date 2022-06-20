@@ -10,7 +10,7 @@ function ContactForm() {
     const submitForm = (e) => {
         e.preventDefault();
         
-        const url = "http://localhost:8000/contact-form";
+        const url = "http://localhost:8000/api/contact-form";
         const data = {
             name: name,
             email: email,
