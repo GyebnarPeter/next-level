@@ -1,11 +1,103 @@
-.contactForm {
+.message {
     background: var(--gradient);
     padding-top: 50px;
 }
 
-.contactForm h2 {
-    margin: 0;
+.message h2 {
+    margin: 0 0 30px 0;
     text-transform: uppercase;
     color: var(--pink);
     text-align: center;
+}
+
+.contactFormInput {
+    background: rgba(255, 255, 255, .3);
+    border: none;
+    padding: 15px 10px;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.contactFormInput::placeholder {
+    color: var(--lightpink);
+    text-transform: uppercase;
+    font-family: var(--open);
+    font-weight: 600;
+}
+
+.contactForm  {
+    max-width: 500px;
+    margin: auto;
+}
+
+.contactForm textarea {
+    height: 120px;
+}
+
+.dataProtect h5 {
+    color: var(--pink);
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.dataProtectInput {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.dataProtect label {
+    color: var(--blue);
+    font-size: 14px;
+    margin-left: 10px;
+    font-weight: 600;
+}
+
+.contactForm input[type="submit"] {
+    border: none;
+    text-transform: uppercase;
+    font-family: var(--oswald);
+    letter-spacing: 1px;
+    background: transparent;
+    color: var(--lightblue);
+    border: 2px solid var(--lightblue);
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 992px) {
+    .message {
+        padding-top: 100px;
+    }
+
+    .contactForm  {
+        max-width: 900px;
+        padding-bottom: 50px;
+    }
+
+    .dataInputs {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .dataInputs input {
+        width: 49%;
+    }
+    
+    .contactFormInput {
+        margin-bottom: 18px;
+    }
+
+    .contactForm textarea {
+        height: 200px;
+    }
+    
+    .submit {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
