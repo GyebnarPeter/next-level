@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\BookingAdminMail;
+use App\Mail\BookingMail;
 use App\Models\Booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use function GuzzleHttp\Promise\all;
 
 class BookingController extends Controller
@@ -27,7 +30,14 @@ class BookingController extends Controller
 
         $booking->save();
 
-        return $booking;
+        if (Mail::to($booking->email)->send(new BookingMail()) && Mail::to('info@nextlevel.hu')->send(new BookingAdminMail()))
+        {
+            return $booking;
+        }
+        else
+        {
+            return 'lenyomat szín';
+        }
     }
 
     function delete($id)

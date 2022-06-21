@@ -53,3 +53,5 @@ Route::put('/update-booking/{id}', [BookingController::class, 'update']);
 
 //email
 Route::post('/contact-form', [EmailController::class, 'mail']);
+Route::post('/booking-form', [EmailController::class, 'book']);
+
