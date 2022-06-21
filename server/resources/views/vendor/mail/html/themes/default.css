@@ -276,11 +276,18 @@ img {
 
 .panel-item {
     padding: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .panel-item p:last-of-type {
     margin-bottom: 0;
     padding-bottom: 0;
+}
+
+.panel-content table {
+    table-layout: fixed;
+    width: 100%;
 }
 
 /* Utilities */

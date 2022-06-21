@@ -4,6 +4,7 @@ namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Http\Request;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
@@ -26,16 +27,22 @@ class BookingMail extends Mailable
      *
      * @return $this
      */
-    public function build()
+    public function build(Request $request)
     {
         return $this
             ->subject('Foglalásod rögzítettük!')
-            ->markdown('mail.admin-mail', [
-//            'name' => $request->input('name')
-                'name' => 'Kis János',
-                'email' => 'kisjani@freemail.hu',
-                'time' => '2022-03-12 13:00:00',
-                'person' => '3'
+            ->markdown('mail.booking', [
+                'name' => $request->input('name'),
+                'person' => $request->input('person'),
+                'phone' => $request->input('phone'),
+                'email' => $request->input('email'),
+                'payment' => $request->input('payment'),
+                'bill' => $request->input('bill'),
+                'comment' => $request->input('comment'),
+                'img' => $request->input('img'),
+                'from_time' => $request->input('from'),
+                'to_time' => $request->input('to'),
+                'game' => $request->input('game')
             ]);
     }
 }
