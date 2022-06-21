@@ -40,8 +40,8 @@ class BookingMail extends Mailable
                 'bill' => $request->input('bill'),
                 'comment' => $request->input('comment'),
                 'img' => $request->input('img'),
-                'from_time' => $request->input('from'),
-                'to_time' => $request->input('to'),
+                'from_time' => $request->input('from_date'),
+                'to_time' => $request->input('to_date'),
                 'game' => $request->input('game')
             ]);
     }

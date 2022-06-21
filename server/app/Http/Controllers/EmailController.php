@@ -29,18 +29,4 @@ class EmailController extends Controller
         }
 
     }
-
-    public function book(Request $request)
-    {
-        $email = $request->input('email');
-
-        if (Mail::to($email)->send(new BookingMail()) && Mail::to('info@nextlevel.hu')->send(new BookingAdminMail()))
-        {
-            return 'buci ár';
-        }
-        else
-        {
-            return 'lenyomat szín';
-        }
-    }
 }
