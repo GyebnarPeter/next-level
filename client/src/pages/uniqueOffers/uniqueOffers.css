@@ -6,7 +6,7 @@
 }
 
 .uniqueOffersText {
-    background-color: white;
+    background-color: rgba(255, 255, 255, .9);;
     padding: 20px;
     max-width: 700px;
     margin: auto;

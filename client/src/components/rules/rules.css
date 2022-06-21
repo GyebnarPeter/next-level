@@ -1,0 +1,21 @@
+.rules {
+    background: url(../../images/white-bg.webp) no-repeat center center;
+    background-size: cover;
+    padding-bottom: 50px;
+}
+
+.rulesText {
+    background-color: rgba(255, 255, 255, .9);
+    max-width: 800px;
+    margin: auto;
+    font-weight: 700; 
+}
+
+.rulesText ol li {
+    color: var(--purple);
+    font-size: 14px;
+    padding: 0 0 20px 10px;
+}
+
+
+
