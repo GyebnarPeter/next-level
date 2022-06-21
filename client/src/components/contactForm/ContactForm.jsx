@@ -21,6 +21,12 @@ function ContactForm() {
             method: "post",
             url: url,
             data: data
+        })
+        .then(function(res) {
+            console.log(res.data)
+        })
+        .catch(function(err) {
+            console.error(err)
         });
     }
 

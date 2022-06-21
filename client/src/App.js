@@ -15,6 +15,7 @@ function App() {
             <Header />
             <Routes>
                 <Route exact path="/" element={<Home />} />
+                <Route exact path="/hasonmas" element={<Counterpart />} />
                 <Route exact path="/rolunk" element={<About />} />
                 <Route exact path="/egyedi-ajanlatok" element={<UniqueOffers />} />
                 <Route exact path="/kapcsolat" element={<Contact />} />

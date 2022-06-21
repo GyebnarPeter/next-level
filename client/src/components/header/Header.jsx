@@ -41,14 +41,10 @@ export default function Header() {
                     </div>
                     <ul className="navList">
                         <li className="navListItem"><Link to="/">Föoldal</Link></li>
-                        <li className="navListItem">
-                            <a href="" className="navLink link">
-                                Hasonmás
-                            </a>
-                        </li>
+                        <li className="navListItem"><Link to="hasonmas">Hasonmás</Link></li>
                         <li className="navListItem"><Link to="rolunk">Rólunk</Link></li>
                         <li className="navListItem"><Link to="egyedi-ajanlatok">Egyedi ajánlatok</Link></li>
-                        <li className="navListItem link"><Link to="kapcsolat">Kapcsolat</Link></li>
+                        <li className="navListItem"><Link to="kapcsolat">Kapcsolat</Link></li>
                     </ul>
                 </nav>
                 <div className="navBtn" onClick={() => setOpenNav(!openNav)}>
