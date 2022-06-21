@@ -26,7 +26,6 @@ class BookingController extends Controller
             'comment' => $request->input('comment'),
             'img' => $request->input('img'),
             'from_date' => $request->input('from_date'),
-            'to_date' => $request->input('to_date'),
             'game' => $request->input('game')
         ]);
 
