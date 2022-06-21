@@ -1,11 +1,11 @@
 import CounterpartDescription from "../../components/counterpartDescription/CounterpartDescription";
-import Footer from "../../components/footer/Footer";
+import Rules from "../../components/rules/Rules";
 
 export default function Counterpart() {
     return (
         <>
         <CounterpartDescription />
-        <Footer />
+        <Rules />
         </>
     )
   }
