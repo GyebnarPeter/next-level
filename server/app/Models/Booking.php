@@ -19,7 +19,6 @@ class Booking extends Model
         'comment',
         'img',
         'from_date',
-        'to_date',
         'game'
     ];
 }
