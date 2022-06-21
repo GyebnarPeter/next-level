@@ -6,8 +6,14 @@ Létszám: {{$person}} <br>
 Email: {{$email}} <br>
 Telefonszám: {{$phone}} <br>
 Fizetési mód: {{$payment}} <br>
-Számlás: {{$bill}} <br>
-Időpont: {{$from_time}} <br>
+@switch($bill)
+@case(0)
+Számlás: Nem <br>
+@break
+@case(1)
+Számlás: Igen <br>
+@endswitch
+Időpont: {{$from_date}} <br>
 Játék: {{$game}} <br>
 @endcomponent
 @component('mail::subcopy')
