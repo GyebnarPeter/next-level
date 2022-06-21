@@ -24,7 +24,6 @@ class CreateBookingRequest extends FormRequest
             'comment' => '',
             'img' => 'required',
             'from_date' => 'required',
-            'to_date' => '',
             'game' => 'required'
         ];
     }
