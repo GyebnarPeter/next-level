@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateContactRequest;
 use App\Mail\AdminMail;
 use App\Mail\BookingAdminMail;
 use App\Mail\BookingMail;
 use App\Mail\ContactMail;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -13,7 +15,7 @@ class EmailController extends Controller
 {
     //
 
-    public function mail(Request $request)
+    public function mail(CreateContactRequest $request): JsonResponse
     {
 
         $email = $request->input('email');
@@ -21,11 +23,11 @@ class EmailController extends Controller
         //Mail Function
         if (Mail::to($email)->send(new ContactMail()) && Mail::to('info@nextlevel.hu')->send(new AdminMail()))
         {
-            return 'buci ár';
+            return response()->json("buci ár");
         }
         else
         {
-            return 'lenyomat szín';
+            return response()->json();
         }
 
     }
