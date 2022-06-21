@@ -1,4 +1,4 @@
-.counterpart {
+.counterpartDescription {
     background: url(../../images/white-bg.webp) no-repeat center center;
     background-size: cover;
     padding-bottom: 50px;
@@ -18,18 +18,18 @@
     text-align: center;
 }
 
-.counterpart .triangle {
+.counterpartDescription .triangle {
     border-top: 20px solid var(--purple);
     margin-top: 30px;
 }
 
-.counterpart .triangle:nth-child(1) {
+.counterpartDescription .triangle:nth-child(1) {
     margin-top: 20px;
     padding-bottom: 30px;
 }
 
 @media screen and (min-width: 768px) {
-    .counterpart {
+    .counterpartDescription {
         padding: 50px 20px;
     }
 }
