@@ -9,6 +9,7 @@ use App\Models\Booking;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Nette\Utils\DateTime;
 
 class BookingController extends Controller
 {
@@ -69,9 +70,26 @@ class BookingController extends Controller
     {
         $bookings = Booking::all();
 
+        $array = array();
+
         foreach ($bookings as $booking)
         {
-            $array[] = [$booking];
+            array_push($array, $booking);
+        }
+
+        return $array;
+    }
+
+    function getDates($date)
+    {
+        $bookings = Booking::whereDate('from_date', "$date")->get();
+
+        $array = array();
+
+        foreach ($bookings as $booking)
+        {
+            $bookingTime = date('H:i', strtotime($booking['from_date']));
+            array_push($array, $bookingTime);
         }
 
         return $array;
