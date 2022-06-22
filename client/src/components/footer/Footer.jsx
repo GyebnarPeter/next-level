@@ -1,3 +1,4 @@
+import React from "react";
 import "./footer.css";
 import logo from "../../images/next-level-mobile-logo.webp";
 

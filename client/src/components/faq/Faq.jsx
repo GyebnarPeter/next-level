@@ -1,3 +1,4 @@
+import React from "react";
 import "./faq.css";
 import Question from "./Question";
 import questions from "./Questions";

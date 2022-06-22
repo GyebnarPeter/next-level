@@ -1,7 +1,8 @@
+import React from "react";
+import Booking from "../../components/booking/Booking";
 import CounterpartDescription from "../../components/counterpartDescription/CounterpartDescription";
 import GameIntro from "../../components/gameIntro/GameIntro";
 import Rules from "../../components/rules/Rules";
-import Calend from "../../components/calend/Calend";
 
 // Import images
 import counterpart from "../../images/hasonmas-logo.webp";
@@ -12,7 +13,7 @@ export default function Counterpart() {
         <>
             <GameIntro src={ counterpart } href="/" background={ background } />
             <CounterpartDescription />
-            <Calend />
+            <Booking />
             <Rules />
         </>
     );
