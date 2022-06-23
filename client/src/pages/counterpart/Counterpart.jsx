@@ -13,7 +13,7 @@ export default function Counterpart() {
         <>
             <GameIntro src={ counterpart } href="/" background={ background } />
             <CounterpartDescription />
-            <Booking />
+            <Booking name="A hasonmás" />
             <Rules />
         </>
     );
