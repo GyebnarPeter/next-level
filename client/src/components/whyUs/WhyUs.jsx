@@ -1,3 +1,4 @@
+import React from "react";
 import "./whyus.css";
 import { useState, useRef, useEffect } from "react";
 import WhyUsBox from "./WhyUsBox";

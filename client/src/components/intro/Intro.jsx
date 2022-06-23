@@ -1,3 +1,4 @@
+import React from "react";
 import "./intro.css";
 import logoAni from "../../images/next-level-logo-ani.webp";
 

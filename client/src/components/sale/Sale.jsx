@@ -1,3 +1,4 @@
+import React from "react";
 import Title from "../title/Title";
 import FirstSale from "./FirstSale";
 import "./sale.css";

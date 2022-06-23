@@ -1,3 +1,4 @@
+import React from "react";
 import "./counterpartDescription.css";
 
 export default function CounterpartDescription() {

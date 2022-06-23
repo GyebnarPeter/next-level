@@ -1,3 +1,4 @@
+import React from "react";
 import "./rules.css";
 import Title from "../../components/title/Title";
 

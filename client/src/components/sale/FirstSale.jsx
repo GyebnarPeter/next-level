@@ -1,3 +1,4 @@
+import React from "react";
 import "./firstSale.css";
 import Button from "../button/Button";
 import counterpart from "../../images/hasonmas_50.png";
