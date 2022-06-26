@@ -1,0 +1,9 @@
+.gameDatas {
+    background: var(--gradient)  no-repeat center center;
+}
+
+@media screen and (min-width: 768px) {
+    .gameDatas {
+        display: flex;
+    }
+}

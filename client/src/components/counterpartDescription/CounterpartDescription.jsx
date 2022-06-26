@@ -3,7 +3,7 @@ import "./counterpartDescription.css";
 export default function CounterpartDescription() {
     return (
         <>
-        <main className="counterpart">
+        <section className="counterpart">
         <div className="triangle"></div>
             <div className="counterpartText">
                 <p>Ha ezt olvasod, akkor úgy gondoljuk a szabaduló szobák világa már biztos nem ismeretlen számodra, de volt már olyan, hogy TÉNYLEG TE voltál a főszereplője?</p>
@@ -13,7 +13,7 @@ export default function CounterpartDescription() {
                 <p>Ezek az otthonaink okosítására használt eszközök. Nálunk számtalan okosotthon megoldással fogsz találkozni, amelyek végigvezetnek majd a szoba kreatív feladatain.</p>
             </div>
         <div className="triangle"></div>
-        </main>
+        </section>
         </>
     )
 }
