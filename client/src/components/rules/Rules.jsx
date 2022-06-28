@@ -6,7 +6,7 @@ export default function Rules() {
     return(
         <>
         <Title name="Házirend"/>
-        <main className="rules">
+        <div className="rules">
             <div className="container">
                 <div className="rulesText">
                     <ol>
@@ -30,7 +30,7 @@ export default function Rules() {
                     </ol>
                 </div>
             </div>
-        </main>
+        </div>
         </>
     )
 }
