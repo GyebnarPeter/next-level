@@ -3,17 +3,11 @@ table {
     border: 1px solid var(--pink);
     border-radius: 20px;
     padding: 20px;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 0 auto;
 }
 
 .gameInfoPrice {
     padding-top: 10px;
-    flex-grow: 1;
-}
-
-.gameInfoPriceWrp {
-    padding-bottom: 80px;
 }
 
 td {
@@ -33,4 +27,11 @@ td {
     table {
         margin-left: 0;
     }
+
+    .gameInfoPrice {
+        flex-grow: unset;
+    }
+
+
 }
+

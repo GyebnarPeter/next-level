@@ -5,11 +5,15 @@ import GameInfoPrice from "../../components/gameInfo/GameInfoPrice";
 export default function GameInfo() {
     return(
         <>
-            <GameInfoText />
-            <section className="gameDatas">
-                <GameInfoDetails />
-                <GameInfoPrice />       
-            </section>
+            <div className="gameInfo">
+                <div className="container">
+                    <GameInfoText />
+                    <section className="gameDatas">
+                        <GameInfoDetails />
+                        <GameInfoPrice />       
+                    </section>
+                </div>
+            </div>
         </>
     )
 }

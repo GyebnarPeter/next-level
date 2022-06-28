@@ -1,6 +1,4 @@
 .gameInfoDetails {
-    padding: 50px;
-    padding-top: 10px;
     flex-grow: 1;
 }
 
@@ -23,9 +21,10 @@
     }
 }
 
-@media screen and (min-width: 992px) {
+/* @media screen and (min-width: 992px) {
     .gameInfoDetails {
         padding: 100px;
         padding-top: 10px;
     }
-}
+} */
+
