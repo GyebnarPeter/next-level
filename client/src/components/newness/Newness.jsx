@@ -1,8 +1,9 @@
+import React from "react";
 import "./newness.css";
 import Title from '../title/Title';
 import Button from "../button/Button";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import '@splidejs/react-splide/css/skyblue';
+import '@splidejs/react-splide/dist/css/themes/splide-skyblue.min.css';
 import counterpart from '../../images/hasonmas-logo.webp';
 
 export default function Newness() {

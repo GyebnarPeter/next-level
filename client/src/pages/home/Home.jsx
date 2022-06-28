@@ -1,3 +1,4 @@
+import React from "react";
 import Intro from "../../components/intro/Intro";
 import Newness from "../../components/newness/Newness";
 import Sale from "../../components/sale/Sale";

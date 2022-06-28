@@ -1,3 +1,4 @@
+import React from "react";
 import "./title.css";
 
 export default function Title(props) {

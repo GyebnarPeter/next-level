@@ -1,3 +1,4 @@
+import React from "react";
 import "./whyUsBox.css";
 
 export default function WhyUsBox(props) {

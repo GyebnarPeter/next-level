@@ -1,3 +1,4 @@
+import React from "react";
 import "./rules.css";
 import Title from "../../components/title/Title";
 
@@ -5,7 +6,7 @@ export default function Rules() {
     return(
         <>
         <Title name="Házirend"/>
-        <main className="rules">
+        <div className="rules">
             <div className="container">
                 <div className="rulesTextWrp">
                     <div className="rulesText">
@@ -31,7 +32,7 @@ export default function Rules() {
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
         </>
     )
 }
