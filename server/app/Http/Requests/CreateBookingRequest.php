@@ -19,7 +19,6 @@ class CreateBookingRequest extends FormRequest
             'person' => 'required',
             'phone' => 'required',
             'email' => 'required',
-            'payment' => 'required',
             'bill' => '',
             'comment' => '',
             'img' => 'required',
@@ -35,7 +34,6 @@ class CreateBookingRequest extends FormRequest
             'person.required' => 'A létszám kitöltése kötelező.',
             'phone.required' => 'Kötelező megadni telefonszámot.',
             'email.required' => 'Kötelező email címet megadni.',
-            'payment.required' => 'Fizetési mód kiválasztása kötelező.',
             'img.required' => 'Kötelező feltölteni képet.',
             'from_date.required' => 'Kötelező időpontot választani',
             'game.required' => 'Kötelező kiválasztani a játékot'

@@ -13,6 +13,7 @@ function Booking(props) {
     const [reservedDates, setReservedDates] = useState([]);
 
     async function changeDate(e) {
+
         setDateState(e);
 
         let date = e
@@ -20,20 +21,24 @@ function Booking(props) {
             .slice(0, -1)
             .replaceAll(". ", "-");
 
-        const url = `http://localhost:8000/api/get-dates/2022-12-14`;
+        const url = `http://localhost:8000/api/get-dates/2022-06-23`;
         const data = {
-            date: "2022-06-21",
+            date: "2022-06-23",
         };
 
         await axios
             .get(url, data)
             .then(function(response) {
-                setReservedDates( response.data );
-                console.log(reservedDates);
+                const time = response.data;
+                time.forEach((element)=> {
+                    setReservedDates(reservedDates => [...reservedDates, element]);
+                });
             })
             .catch(function(error) {
                 console.log(error);
             });
+
+        console.log(reservedDates);
 
         setTimeSlotsVisible(!timeSlotsVisible)
     }
