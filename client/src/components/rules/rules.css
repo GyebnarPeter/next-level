@@ -9,6 +9,7 @@
     max-width: 800px;
     margin: auto;
     font-weight: 700; 
+    padding-top: 20px;
 }
 
 .rulesText ol li {
@@ -17,5 +18,7 @@
     padding: 0 0 20px 10px;
 }
 
-
+.container .rulesTextWrp{
+    padding-top: 70px;
+}
 

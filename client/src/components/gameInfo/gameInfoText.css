@@ -1,0 +1,28 @@
+.gameInfoTextDescription {
+    margin: auto;
+}
+
+.gameInfoTextDescription p {
+    text-align: center;
+    font-weight: 300;
+}
+
+.gameInfoTextBox {
+    background: rgba(255, 255, 255, .3);
+    border-radius: 15px;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+}
+
+#highlightedText {
+    font-weight: 700;
+}
+
+.gameInfoHighlight {
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--pink);
+    width: 70%;
+    margin: auto;
+}

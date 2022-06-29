@@ -1,0 +1,102 @@
+.bookingDetails {
+    max-width: 500px;
+    margin: auto;
+}
+
+.bookingDetails h4 {
+    color: var(--pink);
+    font-family: var(--oswald);
+    text-transform: uppercase;
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+.bookingDetails button {
+    border: 2px solid var(--pink);
+    border-radius: 18px;
+    padding: 10px 25px;
+    background: var(--lightpurple);
+    color: var(--pink);
+    font-family: var(--oswald);
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.bookingInput {
+    margin-bottom: 20px;
+}
+
+.bookingInput label {
+    color: var(--pink);
+    font-family: var(--oswald);
+    text-transform: uppercase;
+    display: block;
+    padding: 0 0 5px 15px;
+}
+
+.bookingInput input,
+.bookingInput textarea {
+    border: 2px solid var(--pink);
+    border-radius: 18px;
+    padding: 8px;
+    background: var(--lightpurple);
+    width: 100%;
+    color: white;
+}
+
+.bookingInput textarea {
+    height: 150px;
+    resize: none;
+}
+
+.bookingRadioInput {
+    display: inline-flex;
+    border: 2px solid var(--pink);
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.bookingRadioInput label {
+    color: var(--pink);
+    font-family: var(--oswald);
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+
+.taxInput {
+    margin-right: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .bookingDetails {
+        max-width: 800px;
+    }
+
+    .inputColumns {
+        display: flex;
+    }
+
+    .inputColumn {
+        flex: 1;
+    }
+
+    .inputColumn:first-child {
+        padding-right: 20px;
+    }
+
+    .inputColumn:last-child {
+        padding-left: 20px;
+    }
+
+    .bookingDetails h4 {
+        margin-top: 0;
+    }
+
+    .bookingRadioInput {
+        margin-bottom: 80px;
+    }
+
+    .bookingInput textarea {
+        height: 100px;
+    }
+}
