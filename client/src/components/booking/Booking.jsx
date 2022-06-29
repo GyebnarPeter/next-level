@@ -43,7 +43,7 @@ function Booking(props) {
             .replaceAll(". ", "-");
 
         setSelectedDate(date);
-        
+
         setBookingData({...bookingData, fromDate: date});
         setBookingData({...bookingData, game: props.name});
 
@@ -73,8 +73,8 @@ function Booking(props) {
             <Title name="Foglalás" />
             <div className="container">
                 <h1>{props.name}</h1>
-                <BookingProcess 
-                    name={props.name} 
+                <BookingProcess
+                    name={props.name}
                     bookingPage={ bookingPage }
                 />
                 {(
@@ -90,17 +90,17 @@ function Booking(props) {
                                 )
                             case "booking_details":
                                 return (
-                                    <BookingDetails 
+                                    <BookingDetails
                                         bookingData={ bookingData }
-                                        setBookingData={ setBookingData } 
+                                        setBookingData={ setBookingData }
                                     />
                                 )
-                            default: 
+                            default:
                                 return ""
                         }
                     }
                 )()}
-        
+
                 {timeSlotsVisible && (
                     <TimeSlots
                         setTimeSlotsVisible={setTimeSlotsVisible}

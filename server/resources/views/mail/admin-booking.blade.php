@@ -5,7 +5,6 @@ Név: {{$name}} <br>
 Létszám: {{$person}} <br>
 Email: {{$email}} <br>
 Telefonszám: {{$phone}} <br>
-Fizetési mód: {{$payment}} <br>
 @switch($bill)
 @case(0)
 Számlás: Nem <br>
