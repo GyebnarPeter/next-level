@@ -8,10 +8,15 @@ function ImageUploader() {
 
     const uploadHandler = (e) => {
       const url = "http://localhost:8000/api/add-temp";
-      const image = e.target.files[0];
+      /* const data = {
+        img: e.target.files[0]
+      } */
+
+      var data = new FormData()
+      data.append('img', e.target.files[0])
 
       axios
-          .post(url, image)
+          .post(url, data)
           .then(function(response) {
             console.log(response);
           })
