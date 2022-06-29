@@ -1,0 +1,96 @@
+.imageUploader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image {
+    border: 2px solid var(--pink);
+    border-radius: 10px;
+    width: 200px;
+    background: var(--lightpurple);
+    position: relative;
+}
+
+.image::before {
+    content: url(../../images/plus.png);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    cursor: pointer;
+    width: 100%;
+    height: 100px;
+    padding-top: 40px;
+}
+
+.image::after {
+    content: "Kép feltöltése";
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--lightblue);
+    text-transform: uppercase;
+    font-family: var(--oswald);
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 16px;
+}
+
+.upload h4 {
+    text-transform: uppercase;
+    font-family: var(--oswald);
+    color: var(--pink);
+    text-align: center;
+    margin-top: 50px;
+}
+
+.uploaded-image {
+    width: 200px;
+    height: 200px;
+    border: 2px solid var(--pink);
+    position: relative;
+}
+
+.uploaded-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.removeImageBtn {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    background: var(--lightpurple);
+    border-radius: 50%;
+    border: 2px solid var(--blue);
+    position: absolute;
+    top: 30px;
+    left: -20px;
+    cursor: pointer;
+}
+
+.removeImageBtn img {
+    width: 20px;
+    height: auto;
+}
+
+@media screen and (min-width: 768px) {
+    .imageUploader {
+        width: 700px;
+        margin: auto;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .upload h4 {
+        margin-top: 0;
+    }
+
+    .image {
+        transform: translateY(20px);
+    }
+}

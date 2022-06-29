@@ -7,6 +7,8 @@ import BookingProcess from "./BookingProcess";
 import TimeSlots from "./TimeSlots";
 import { useEffect } from "react";
 import BookingDetails from "./BookingDetails";
+import ImageUploader from "./ImageUploader";
+import BookingSummary from "./BookingSummary";
 /* import getReservedTimes from "../../service/getReservedTimes"; */
 const axios = require("axios").default;
 
@@ -15,7 +17,7 @@ function Booking(props) {
     const [dateState, setDateState] = useState(new Date());
     const [selectedDate, setSelectedDate] = useState("");
     const [timeSlotsVisible, setTimeSlotsVisible] = useState(false);
-    const [bookingPage, setBookingPage] = useState("calendar");
+    const [bookingPage, setBookingPage] = useState("image-uploader");
     const [bookingData, setBookingData] = useState({
         name: "",
         person: "",
@@ -44,8 +46,11 @@ function Booking(props) {
 
         setSelectedDate(date);
         
-        setBookingData({...bookingData, fromDate: date});
-        setBookingData({...bookingData, game: props.name});
+        setBookingData({
+            ...bookingData, 
+            fromDate: date, 
+            game: props.name
+        });
 
         const url = `http://localhost:8000/api/get-dates/2022-12-14`;
         const data = {
@@ -93,8 +98,14 @@ function Booking(props) {
                                     <BookingDetails 
                                         bookingData={ bookingData }
                                         setBookingData={ setBookingData } 
+                                        setBookingPage={ setBookingPage }
+                                        name={ props.name }
                                     />
                                 )
+                            case "image-uploader":
+                                return <ImageUploader />
+                            case "booking-summary":
+                                return <BookingSummary />
                             default: 
                                 return ""
                         }

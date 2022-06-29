@@ -23,11 +23,25 @@ function BookingProcess(props) {
                 Adatok
             </div>
             {props.name === "A hasonmás" && (
-                <div className="bookingStep">
+                <div
+                    className={
+                        props.bookingPage === "image-uploader"
+                            ? "bookingStep bookingStepActive"
+                            : "bookingStep"
+                    }
+                >
                     Kép-<span>feltöltés</span>
                 </div>
             )}
-            <div className="bookingStep">Foglalás</div>
+            <div
+                className={
+                    props.bookingPage === "booking-summary"
+                        ? "bookingStep bookingStepActive"
+                        : "bookingStep"
+                }
+            >
+                Foglalás
+            </div>
             <div className="bookingStep">
                 Vissza-<span>igazolás</span>
             </div>

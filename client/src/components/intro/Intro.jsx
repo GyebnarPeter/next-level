@@ -3,6 +3,7 @@ import "./intro.css";
 import logoAni from "../../images/next-level-logo-ani.webp";
 
 export default function Intro() {
+
     return (
         <div className="intro">
             <div className="container">
