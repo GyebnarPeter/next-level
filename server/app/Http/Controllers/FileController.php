@@ -3,23 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateFileRequest;
+use App\Models\File;
 use Illuminate\Http\Request;
-use phpDocumentor\Reflection\File;
 
 class FileController extends Controller
 {
     //
 
-    function store(CreateFileRequest $request)
+    function store(Request $request)
     {
-        $file = File::create([
-            'path' => $request->file('img')
-        ]);
 
-        $file->store('/temp_uploads', ['disk' => 'public_uploads']);
+        if($request->has('img'))
+        {
+           $image = $request->file('img');
+           $filename = $image->getClientOriginalName();
 
-        $fullPath = '/temp_uploads/' . $file;
+           return $filename;
+        }
+        else
+        {
+            return 'No file';
+        }
 
-        return $fullPath;
     }
 }
