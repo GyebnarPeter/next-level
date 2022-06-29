@@ -45,7 +45,7 @@ function Booking(props) {
             .replaceAll(". ", "-");
 
         setSelectedDate(date);
-        
+
         setBookingData({
             ...bookingData, 
             fromDate: date, 
@@ -78,8 +78,8 @@ function Booking(props) {
             <Title name="Foglalás" />
             <div className="container">
                 <h1>{props.name}</h1>
-                <BookingProcess 
-                    name={props.name} 
+                <BookingProcess
+                    name={props.name}
                     bookingPage={ bookingPage }
                 />
                 {(
@@ -95,9 +95,9 @@ function Booking(props) {
                                 )
                             case "booking_details":
                                 return (
-                                    <BookingDetails 
+                                    <BookingDetails
                                         bookingData={ bookingData }
-                                        setBookingData={ setBookingData } 
+                                        setBookingData={ setBookingData }
                                         setBookingPage={ setBookingPage }
                                         name={ props.name }
                                     />
@@ -106,12 +106,12 @@ function Booking(props) {
                                 return <ImageUploader />
                             case "booking-summary":
                                 return <BookingSummary />
-                            default: 
+                            default:
                                 return ""
                         }
                     }
                 )()}
-        
+
                 {timeSlotsVisible && (
                     <TimeSlots
                         setTimeSlotsVisible={setTimeSlotsVisible}

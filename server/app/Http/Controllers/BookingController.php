@@ -9,6 +9,7 @@ use App\Models\Booking;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Nette\Utils\DateTime;
 
 class BookingController extends Controller
@@ -16,19 +17,21 @@ class BookingController extends Controller
     //
     function store(CreateBookingRequest $request): JsonResponse
     {
+        $file = $request->file('img');
 
         $booking = Booking::create([
             'name' => $request->input('name'),
             'person' => $request->input('person'),
             'phone' => $request->input('phone'),
             'email' => $request->input('email'),
-            'payment' => $request->input('payment'),
             'bill' => $request->input('bill'),
             'comment' => $request->input('comment'),
-            'img' => $request->input('img'),
+            'img' => $file,
             'from_date' => $request->input('from_date'),
             'game' => $request->input('game')
         ]);
+
+        $file->store('/uploads', ['disk' => 'public_uploads']);
 
         if (Mail::to($booking->email)->send(new BookingMail()) && Mail::to('info@nextlevel.hu')->send(new BookingAdminMail())) {
             return response()->json($booking);
