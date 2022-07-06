@@ -17,8 +17,10 @@ class FileController extends Controller
         {
            $image = $request->file('img');
            $filename = $image->getClientOriginalName();
+           $image->move('uploads/', $filename);
 
-           return $filename;
+           $fullPath = 'uploads/' . $filename;
+           return $fullPath;
         }
         else
         {
