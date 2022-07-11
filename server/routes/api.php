@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\VoteController;
 use App\Http\Controllers\VoterController;
 use Illuminate\Http\Request;
@@ -45,6 +46,7 @@ Route::get('/get-voter/{id}', [VoterController::class, 'get']);
 
 //bookings
 Route::post('/add-booking', [BookingController::class, 'store']);
+Route::post('/add-temp', [FileController::class, 'store']);
 Route::delete('/delete-booking/{id}', [BookingController::class, 'delete']);
 Route::get('/get-all-bookings', [BookingController::class, 'getAll']);
 Route::get('/get-booking/{id}', [BookingController::class, 'get']);

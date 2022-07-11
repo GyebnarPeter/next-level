@@ -1,7 +1,18 @@
 import React from "react";
 import "./bookingDetails.css";
 
-function BookingDetails({ bookingData, setBookingData }) {
+function BookingDetails({ bookingData, setBookingData, setBookingPage, name }) {
+
+    const bookingDetailsHandler = (e) => {
+        e.preventDefault();
+
+        if(name === "A hasonmás") {
+            setBookingPage("image-uploader")
+        } else {
+            setBookingPage("booking-summary")
+        }
+    }
+
     return (
         <div className="bookingDetails">
             <div className="inputColumns">
@@ -173,7 +184,7 @@ function BookingDetails({ bookingData, setBookingData }) {
                     </div>
                 </div>
             </div>
-            <button>Tovább</button>
+            <button onClick={ bookingDetailsHandler }>Tovább</button>
         </div>
     );
 }
