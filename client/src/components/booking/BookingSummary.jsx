@@ -1,10 +1,16 @@
 import React from 'react';
 import "./bookingSummary.css";
 
-function BookingSummary() {
+function BookingSummary({bookingData}) {
   return (
     <div className="bookingSummary">
-        Booking Summary
+        <div className="bookingItems">
+            <div className="bookingItem">
+              <span>Név:</span>
+              <span>{bookingData.name}</span>
+            </div>
+        </div>
+        <div className="bookingItems"></div>
     </div>
   )
 }
