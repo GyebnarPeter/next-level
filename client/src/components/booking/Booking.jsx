@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import BookingDetails from "./BookingDetails";
 import ImageUploader from "./ImageUploader";
 import BookingSummary from "./BookingSummary";
+import BookingConfirmation from "./BookingConfirmation";
 /* import getReservedTimes from "../../service/getReservedTimes"; */
 const axios = require("axios").default;
 
@@ -87,11 +88,7 @@ function Booking(props) {
                     switch (bookingPage) {
                         case "calendar":
                             return (
-                                <Calendar
-                                    onChange={changeDate}
-                                    value={dateState}
-                                    minDate={new Date()}
-                                />
+                                <BookingConfirmation />
                             );
                         case "booking_details":
                             return (

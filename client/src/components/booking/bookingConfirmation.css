@@ -1,0 +1,26 @@
+.bookingConfirmation {
+    text-align: center;
+}
+
+.bookingConfirmationText h3 {
+    color: var(--lightblue);
+    font-family: var(--oswald);
+    text-transform: uppercase;
+    padding-bottom: 30px;
+}
+
+.bookingConfirmationText p {
+    color: white;
+}
+
+.bookingConfirmationHighlight {
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--pink);
+    width: 200px;
+    margin: auto;
+}
+
+.checkIcon {
+    color: var(--lightblue);
+    font-size: 30px;
+}

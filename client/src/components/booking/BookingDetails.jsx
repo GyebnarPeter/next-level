@@ -1,5 +1,5 @@
 import React from "react";
-import "./bookingDetails.css";
+import "./bookingDetails.css"
 
 function BookingDetails({ bookingData, setBookingData, setBookingPage, name }) {
 
