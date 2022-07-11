@@ -50,12 +50,18 @@ function BookingSummary({ bookingData, setBookingPage }) {
                     <div className="bookingItem">
                         <span className="bookingData">Dátum:</span>
                         <span className="bookingValue">
-                            {bookingData.fromDate}
+                            {
+                              bookingData.fromDate.split(" ")[0]
+                            }
                         </span>
                     </div>
                     <div className="bookingItem">
                         <span className="bookingData">Időpont:</span>
-                        <span className="bookingValue">{bookingData.time}</span>
+                        <span className="bookingValue">
+                          {
+                            bookingData.fromDate.split(" ")[1]
+                          }
+                        </span>
                     </div>
                 </div>
                 <div className="bookingItems">
