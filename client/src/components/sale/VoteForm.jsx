@@ -1,9 +1,9 @@
+import React from "react";
 import { useState, useRef } from "react";
 import VoteItem from "./VoteItem";
 import voteText from "./VoteText";
 import "./voteForm.css";
-
-const parse = require("html-react-parser");
+import parse from 'html-react-parser';
 const axios = require("axios").default;
 
 function VoteForm({ setSendForm, setVoteState }) {

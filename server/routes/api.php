@@ -49,6 +49,7 @@ Route::delete('/delete-booking/{id}', [BookingController::class, 'delete']);
 Route::get('/get-all-bookings', [BookingController::class, 'getAll']);
 Route::get('/get-booking/{id}', [BookingController::class, 'get']);
 Route::put('/update-booking/{id}', [BookingController::class, 'update']);
+Route::get('/get-dates/{date}', [BookingController::class, 'getDates']);
 
 //email
 Route::post('/contact-form', [EmailController::class, 'mail']);

@@ -9,6 +9,8 @@ import Contact from "./pages/contact/Contact";
 import Footer from "./components/footer/Footer";
 import Counterpart from "./pages/counterpart/Counterpart";
 
+console.log(new Array(5).join("a"-10) + " Batman!")
+
 function App() {
     return (
         <Router>

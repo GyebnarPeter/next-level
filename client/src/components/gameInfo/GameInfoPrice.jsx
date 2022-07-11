@@ -1,3 +1,4 @@
+import React from "react";
 import "./gameInfoPrice.css";
 
 export default function gameInfoPrice() {

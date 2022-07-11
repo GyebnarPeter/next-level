@@ -1,3 +1,4 @@
+import React from "react";
 import Title from "../../components/title/Title";
 import logo from "../../images/next-level-logo.webp";
 import { FaFacebook } from "@react-icons/all-files/fa/FaFacebook";

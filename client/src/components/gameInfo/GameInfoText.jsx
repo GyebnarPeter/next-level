@@ -1,3 +1,4 @@
+import React from "react";
 import "./gameInfoText.css";
 
 export default function GameInfoText() {
