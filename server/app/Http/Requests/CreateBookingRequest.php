@@ -19,10 +19,14 @@ class CreateBookingRequest extends FormRequest
             'person' => 'required',
             'phone' => 'required',
             'email' => 'required',
-            'bill' => '',
+            'bill' => 'required',
+            'billName' => '',
+            'billAddress' => '',
+            'billEmail' => '',
+            'billPhone' => '',
             'comment' => '',
             'img' => 'required',
-            'from_date' => 'required',
+            'from_date' => '',
             'game' => 'required'
         ];
     }
@@ -34,8 +38,9 @@ class CreateBookingRequest extends FormRequest
             'person.required' => 'A létszám kitöltése kötelező.',
             'phone.required' => 'Kötelező megadni telefonszámot.',
             'email.required' => 'Kötelező email címet megadni.',
+            'bill.required' => 'Kötelező választani billt',
             'img.required' => 'Kötelező feltölteni képet.',
-            'from_date.required' => 'Kötelező időpontot választani',
+//            'from_date.required' => 'Kötelező időpontot választani',
             'game.required' => 'Kötelező kiválasztani a játékot'
         ];
     }

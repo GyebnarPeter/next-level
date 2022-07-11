@@ -17,7 +17,6 @@ class BookingController extends Controller
     //
     function store(CreateBookingRequest $request): JsonResponse
     {
-        $file = $request->file('img');
 
         $booking = Booking::create([
             'name' => $request->input('name'),
@@ -25,19 +24,20 @@ class BookingController extends Controller
             'phone' => $request->input('phone'),
             'email' => $request->input('email'),
             'bill' => $request->input('bill'),
+            'bill_address' => $request->input('billAddress'),
+            'bill_name' => $request->input('billName'),
+            'bill_phone' => $request->input('billPhone'),
+            'bill_email' => $request->input('billEmail'),
             'comment' => $request->input('comment'),
-            'img' => $file,
-            'from_date' => $request->input('from_date'),
+            'img' => $request->input('img'),
+            'from_date' => '2022-08-08 12:00:00',
             'game' => $request->input('game')
         ]);
-
-        $file->store('/uploads', ['disk' => 'public_uploads']);
 
         if (Mail::to($booking->email)->send(new BookingMail()) && Mail::to('info@nextlevel.hu')->send(new BookingAdminMail())) {
             return response()->json($booking);
         }
-
-        return response()->json($booking);
+        return response()->json('ok');
     }
 
     function delete($id)
