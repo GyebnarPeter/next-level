@@ -40,7 +40,6 @@ class CreateBookingRequest extends FormRequest
             'email.required' => 'Kötelező email címet megadni.',
             'bill.required' => 'Kötelező választani billt',
             'img.required' => 'Kötelező feltölteni képet.',
-//            'from_date.required' => 'Kötelező időpontot választani',
             'game.required' => 'Kötelező kiválasztani a játékot'
         ];
     }
