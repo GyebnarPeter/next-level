@@ -1,7 +1,12 @@
 import React from "react";
 import "./bookingSummary.css";
 
-function BookingSummary({ bookingData }) {
+function BookingSummary({ bookingData, setBookingPage }) {
+
+  const nextPage = () => {
+    setBookingPage("booking-confirm");
+  }
+
     return (
         <div className="bookingSummary">
             <div className="bookingDatas">
@@ -74,7 +79,7 @@ function BookingSummary({ bookingData }) {
                     </div>
                 </div>
             </div>
-            <button>Lefoglalom</button>
+            <button onClick={nextPage}>Lefoglalom</button>
         </div>
     );
 }

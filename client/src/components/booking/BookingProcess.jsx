@@ -42,7 +42,13 @@ function BookingProcess(props) {
             >
                 Foglalás
             </div>
-            <div className="bookingStep">
+            <div
+                className={
+                    props.bookingPage === "booking-confirm"
+                        ? "bookingStep bookingStepActive"
+                        : "bookingStep"
+                }
+            >
                 Vissza-<span>igazolás</span>
             </div>
         </div>
