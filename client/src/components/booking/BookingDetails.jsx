@@ -6,6 +6,13 @@ function BookingDetails({ bookingData, setBookingData, setBookingPage, name }) {
     const bookingDetailsHandler = (e) => {
         e.preventDefault();
 
+        if(!bookingData.hasOwnProperty("bill")) {
+            setBookingData({
+                ...bookingData,
+                bill: 0
+            });
+        }
+
         if(name === "A hasonmás") {
             setBookingPage("image-uploader")
         } else {
@@ -116,6 +123,7 @@ function BookingDetails({ bookingData, setBookingData, setBookingPage, name }) {
                         </div>
                         <div className="taxInput">
                             <input
+                                defaultChecked 
                                 type="radio"
                                 name="tax"
                                 id="tax_no"

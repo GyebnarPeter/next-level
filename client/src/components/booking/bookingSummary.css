@@ -1,0 +1,51 @@
+.bookingItem {
+    margin-bottom: 10px;
+}
+
+.bookingItem span {
+    display: block;
+}
+
+.bookingData {
+    color: var(--lightblue);
+    font-family: var(--oswald);
+    font-size: 20px;
+}
+
+.bookingValue {
+    color: var(--pink);
+    padding-left: 5px;
+}
+
+.bookingSummary button {
+    border: 2px solid var(--pink);
+    border-radius: 10px;
+    padding: 10px 25px;
+    background: var(--lightpurple);
+    color: var(--pink);
+    font-family: var(--oswald);
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 50px 0 0;
+    display: block;
+}
+
+@media screen and (min-width: 768px) {
+    .bookingSummary {
+        width: 600px;
+        margin: auto;
+        padding: 0 20px;
+    }
+
+    .bookingDatas {
+        display: flex;
+    }
+
+    .bookingItems {
+        flex: 1;
+    }
+
+    .bookingItems:last-child {
+        padding-left: 100px;
+    }
+}
