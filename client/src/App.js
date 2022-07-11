@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
 import Header from "./components/header/Header";
 import Home from "./pages/home/Home";
 import UniqueOffers from "./pages/uniqueOffers/UniqueOffers";
@@ -16,11 +15,11 @@ function App() {
         <Router>
             <Header />
             <Routes>
-                <Route exact path="/" element={<Home />} />
-                <Route exact path="/hasonmas" element={<Counterpart />} />
-                <Route exact path="/rolunk" element={<About />} />
-                <Route exact path="/egyedi-ajanlatok" element={<UniqueOffers />} />
-                <Route exact path="/kapcsolat" element={<Contact />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/hasonmas" element={<Counterpart />} />
+                <Route path="/rolunk" element={<About />} />
+                <Route path="/egyedi-ajanlatok" element={<UniqueOffers />} />
+                <Route path="/kapcsolat" element={<Contact />} />
             </Routes>
             <Footer />
         </Router>
