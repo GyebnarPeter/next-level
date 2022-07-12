@@ -1,7 +1,7 @@
 import React from "react";
 import "./title.css";
 
-export default function Title(props) {
+function Title(props) {
   return (
     <div className="title">
         <h2>
@@ -11,3 +11,5 @@ export default function Title(props) {
     </div>
   )
 }
+
+export default Title

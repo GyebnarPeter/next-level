@@ -7,18 +7,15 @@ use App\Mail\BookingAdminMail;
 use App\Mail\BookingMail;
 use App\Models\Booking;
 Use Illuminate\Support\Facades\File;
-use Illuminate\Foundation\Auth\User;use Illuminate\Http\JsonResponse;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Storage;
-use Nette\Utils\DateTime;
 
 class BookingController extends Controller
 {
-    //
+
     function store(CreateBookingRequest $request): JsonResponse
     {
-
         $filename = $request->input('img');
 
         $booking = Booking::create([
@@ -37,74 +34,79 @@ class BookingController extends Controller
             'game' => $request->input('game')
         ]);
 
-        File::move('temp_images/'.$filename, 'uploads/'.$filename);
-
-        if (Mail::to($booking->email)->send(new BookingMail()) && Mail::to('info@nextlevel.hu')->send(new BookingAdminMail())) {
-            return response()->json($booking);
+        if (!File::move('temp_images/'.$filename, 'uploads/'.$filename)) {
+            return response()->json(['message' => 'Sikertelen fájlfeltöltés!'], 404);
         }
 
-        return response()->json('ok');
+        if (!Mail::to($booking->email)->send(new BookingMail()) && !Mail::to('info@nextlevel.hu')->send(new BookingAdminMail())) {
+            return response()->json(['message' => 'Email küldés sikertelen!'], 404);
+        }
 
+        return response()->json($booking);
     }
 
-    function delete($id)
+    function delete(int $id): JsonResponse
     {
         $booking = Booking::find($id);
 
-        if ($booking->delete())
-        {
-            return "Sikeresen törölve: " . $booking;
+        if (!$booking) {
+            return response()->json(['message' => 'Nem található foglalás!'], 404);
         }
-        else
-        {
-            return "Sikertelen törlés";
-        }
+
+        Booking::destroy($id);
+
+        return response()->json([], 204);
     }
 
-    function update(Request $request, $id)
+    function update(Request $request, int $id): JsonResponse
     {
         $booking = Booking::find($id);
+
+        if (!$booking) {
+            return response()->json(['message' => 'Nem található foglalás!'], 404);
+        }
+
         $booking->update($request->all());
 
-        return $booking;
+        return response()->json($booking);
     }
 
-    function get($id)
+    function get(int $id): JsonResponse
     {
         $booking = Booking::find($id);
 
-        return $booking;
+        if (!$booking) {
+            return response()->json(['message' => 'Nem található foglalás!'], 404);
+        }
+
+        return response()->json($booking);
     }
 
-    function getAll()
+    function getAll(): JsonResponse
     {
         $bookings = Booking::all();
 
-        $array = array();
-
-        foreach ($bookings as $booking)
-        {
-            array_push($array, $booking);
+        if (!$bookings) {
+            return response()->json(['message' => 'Nem található egy foglalás sem!'], 404);
         }
 
-        return $array;
+        return response()->json($bookings);
     }
 
-    function getDates($date)
+    function getDates($date): JsonResponse
     {
         $bookings = Booking::whereDate('from_date', "$date")->get();
 
-        $array = array();
+        $allDates = array();
 
         foreach ($bookings as $booking)
         {
             $bookingTime = date('H:i', strtotime($booking['from_date']));
-            array_push($array, $bookingTime);
+            array_push($allDates, $bookingTime);
         }
 
-        return $array;
+        return response()->json($allDates);
     }
-
 
 }
 

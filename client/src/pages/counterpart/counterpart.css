@@ -1,0 +1,9 @@
+.counterpart {
+    padding-top: 66px;
+}
+
+@media screen and (min-width: 992px) {
+    .counterpart {
+        padding-top: 132px;
+    }
+}

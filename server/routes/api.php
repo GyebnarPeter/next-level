@@ -25,33 +25,33 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //admin
-Route::post('/create-admin', [AdminController::class, 'create']);
-Route::delete('/delete-admin/{id}', [AdminController::class, 'delete']);
-Route::get('/get-all-admins', [AdminController::class, 'getAll']);
-Route::get('/get-admin/{id}', [AdminController::class, 'get']);
-Route::put('/update-admin/{id}', [AdminController::class, 'update']);
+Route::post('/admins', [AdminController::class, 'create']);
+Route::delete('/admins/{id}', [AdminController::class, 'delete']);
+Route::get('/admins', [AdminController::class, 'getAll']);
+Route::get('/admins/{id}', [AdminController::class, 'get']);
+Route::patch('/admins/{id}', [AdminController::class, 'update']);
 
 //votes
-Route::post('/add-vote', [VoteController::class, 'create']);
-Route::delete('/delete-vote/{id}', [VoteController::class, 'delete']);
-Route::get('/get-all-votes', [VoteController::class, 'getAll']);
-Route::get('/get-vote/{id}', [VoteController::class, 'get']);
-Route::put('/update-vote/{id}', [VoteController::class, 'update']);
+Route::post('/votes', [VoteController::class, 'create']);
+Route::delete('/votes/{id}', [VoteController::class, 'delete']);
+Route::get('/votes', [VoteController::class, 'getAll']);
+Route::get('/votes/{id}', [VoteController::class, 'get']);
+Route::patch('/votes/{id}', [VoteController::class, 'update']);
 
 //voters
-Route::post('/add-voter', [VoterController::class, 'create']);
-Route::delete('/delete-voter/{id}', [VoterController::class, 'delete']);
-Route::get('/get-all-voters', [VoterController::class, 'getAll']);
-Route::get('/get-voter/{id}', [VoterController::class, 'get']);
+Route::post('/voters', [VoterController::class, 'create']);
+Route::delete('/voters/{id}', [VoterController::class, 'delete']);
+Route::get('/voters', [VoterController::class, 'getAll']);
+Route::get('/voters/{id}', [VoterController::class, 'get']);
 
 //bookings
-Route::post('/add-booking', [BookingController::class, 'store']);
+Route::post('/bookings', [BookingController::class, 'store']);
 Route::post('/add-temp', [FileController::class, 'store']);
-Route::delete('/delete-booking/{id}', [BookingController::class, 'delete']);
-Route::get('/get-all-bookings', [BookingController::class, 'getAll']);
-Route::get('/get-booking/{id}', [BookingController::class, 'get']);
-Route::put('/update-booking/{id}', [BookingController::class, 'update']);
-Route::get('/get-dates/{date}', [BookingController::class, 'getDates']);
+Route::delete('/bookings/{id}', [BookingController::class, 'delete']);
+Route::get('/bookings', [BookingController::class, 'getAll']);
+Route::get('/bookings/{id}', [BookingController::class, 'get']);
+Route::patch('/bookings/{id}', [BookingController::class, 'update']);
+Route::get('/dates/{date}', [BookingController::class, 'getDates']);
 
 //email
 Route::post('/contact-form', [EmailController::class, 'mail']);

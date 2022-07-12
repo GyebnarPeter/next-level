@@ -4,8 +4,8 @@ import "./about.css";
 
 export default function About() {
     return (
-        <>
-            <Title name="Rólunk" />
+        <div className="aboutPage">
+            <Title name="Rólunk"/>
             <main className="about">
                 <div className="aboutText">
                     <h3>Álomból lett valóság…</h3>
@@ -16,7 +16,7 @@ export default function About() {
                         gondoltuk, hogy IGEN!, lesz még rá kereslet. A legtöbb
                         csapat, akik jártak már szabaduló szobában, kipróbáltak
                         egyet, aztán még egyet, aztán még egyet és, ha elkapták
-                        a flow-t, akkor nincs megállás.{" "}
+                        a flow-t, akkor nincs megállás.
                     </p>
                     <p>
                         Természetesen már nem az egyszerű „csak számkombinációs
@@ -26,7 +26,7 @@ export default function About() {
                         Level első szabaduló szobájának megalkotásakor is ez
                         volt az elsődleges célunk. Nálunk találsz majd egy-két
                         lakatot és zárat, de egyik sem lesz olyan, amit eddig
-                        már megszoktál.{" "}
+                        már megszoktál.
                     </p>
                     <p>
                         Az elsődleges célunk a közeljövőben az, hogy minél több
@@ -38,12 +38,12 @@ export default function About() {
                     </p>
                     <h3>Készen állsz a következő szintre lépni? </h3>
                     <p>
-                        Gyere el és próbáld ki a Next Level – Logic Playground
+                        Gyere el és próbáld ki a Next Level - Logic Playground
                         első logikai játékait és kövesd nyomon a bővülő
                         kínálatunkat!
                     </p>
                 </div>
             </main>
-        </>
+        </div>
     );
 }
