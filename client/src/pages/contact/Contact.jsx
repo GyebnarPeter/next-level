@@ -16,8 +16,12 @@ export default function Contact() {
                             <img src={logo} alt="next level logo" />
                         </div>
                         <div className="icons">
-                            <FaFacebook className="contactSocial" />
-                            <FaInstagram className="contactSocial" />
+                            <a href="https://www.facebook.com/nextlevellogicplayground/" target="_blank">
+                                <FaFacebook className="contactSocial" />
+                            </a>
+                            <a href="https://www.instagram.com/nextlevel_logicplayground/" target="_blank">
+                                <FaInstagram className="contactSocial" />
+                            </a>
                         </div>
                     </div>
                     <div className="contactBox">
@@ -36,8 +40,12 @@ export default function Contact() {
                                 <p>Vasárnap: 13.00 - 21.00</p>
                             </div>
                             <div className="icons">
-                                <FaFacebook className="contactSocial" />
-                                <FaInstagram className="contactSocial" />
+                                <a href="https://www.facebook.com/nextlevellogicplayground/" target="_blank">
+                                    <FaFacebook className="contactSocial" />
+                                </a>
+                                <a href="https://www.instagram.com/nextlevel_logicplayground/" target="_blank">
+                                    <FaInstagram className="contactSocial" />
+                                </a>
                             </div>
                         </div>
                     </div>
