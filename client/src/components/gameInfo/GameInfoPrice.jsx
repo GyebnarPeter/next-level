@@ -15,26 +15,27 @@ export default function gameInfoPrice(props) {
                 <tbody>
                     <tr>
                         <td>2 fő:</td>
-                        <td className="pinkText">6.000,- Ft</td>
+                        <td className="pinkText">{props.two} Ft</td>
                     </tr>
                     <tr>
                         <td>3 fő:</td>
-                        <td className="pinkText">8.000,- Ft</td>
+                        <td className="pinkText">{props.three} Ft</td>
                     </tr>
                     <tr>
                         <td>4 fő:</td>
-                        <td className="pinkText">10.000,- Ft</td>
+                        <td className="pinkText">{props.four} Ft</td>
                     </tr>
                     <tr>
                         <td>5 fő:</td>
-                        <td className="pinkText">12.000,- Ft</td>
+                        <td className="pinkText">{props.five} Ft</td>
                     </tr>
                     <tr>
                         <td>6 fő:</td>
-                        <td className="pinkText">13.000,- Ft</td>
+                        <td className="pinkText">{props.six} Ft</td>
                     </tr>
                 </tbody>
             </table> 
         </section>
     )
 }
+
