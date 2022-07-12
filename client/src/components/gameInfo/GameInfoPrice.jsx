@@ -1,15 +1,18 @@
 import React from "react";
 import "./gameInfoPrice.css";
 
-export default function gameInfoPrice() {
+export default function gameInfoPrice(props) {
     return (
         <section className="gameInfoPrice">
             <table>
-                <tbody>
+                <thead>
                     <tr>
-                        <td>Ár:</td>
+                        <td>
+                            Ár:
+                        </td>
                     </tr>
-                    {/* <div className="priceHighlight"></div> */}
+                 </thead>
+                <tbody>
                     <tr>
                         <td>2 fő:</td>
                         <td className="pinkText">6.000,- Ft</td>
