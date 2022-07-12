@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateFileRequest;
-use App\Models\File;
 use Illuminate\Http\Request;
 
 class FileController extends Controller
@@ -17,10 +15,9 @@ class FileController extends Controller
         {
            $image = $request->file('img');
            $filename = $image->getClientOriginalName();
-           $image->move('uploads/', $filename);
+           $image->move('temp_images/', $filename);
 
-           $fullPath = 'uploads/' . $filename;
-           return $fullPath;
+           return $filename;
         }
         else
         {
