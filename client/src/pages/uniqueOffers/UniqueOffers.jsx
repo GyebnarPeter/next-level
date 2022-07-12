@@ -4,25 +4,25 @@ import "./uniqueOffers.css";
 
 export default function UniqueOffers() {
     return (
-        <>
+        <div className="offers">
             <Title name="Egyedi Ajánlatok" />
             <main className="uniqueOffers">
                 <div className="uniqueOffersText">
                     <h3>
-                        A Next Level – Logic Playground mindenki számára
+                        A Next Level - Logic Playground mindenki számára
                         élménydús programokat kínál!
                     </h3>
                     <p>
                         Kezdő vállalkozásként mindenre nyitottak vagyunk, minél
                         több alternatív kikapcsolódási formát szeretnénk
                         kialakítani a szegedieknek és a környékről ide
-                        érkezőknek.{" "}
+                        érkezőknek.
                     </p>
                     <p>
                         Van egy jó ötleted, de még nem tudod hogy valósítsd meg?
                         Mi segíthetünk ebben! Vedd fel velünk a kapcsolatot, ha
                         úgy gondolod tudunk neked segíteni bármilyen kreatív
-                        program megvalósításában.{" "}
+                        program megvalósításában.
                     </p>
                     <h3>Külső helyszínen van lehetőség bármilyen játékra?</h3>
                     <p className="uniqueOffersHighlight">
@@ -47,6 +47,6 @@ export default function UniqueOffers() {
                     </h3>
                 </div>
             </main>
-        </>
+        </div>
     );
 }

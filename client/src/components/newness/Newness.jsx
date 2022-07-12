@@ -55,7 +55,7 @@ export default function Newness() {
                             </div>
                         </div>
                     </SplideSlide>
-                    <SplideSlide>
+                    {/* <SplideSlide>
                         <div className="newness-page">
                             <div className="newness-program">
                                 <figure className="newness-image">
@@ -106,7 +106,7 @@ export default function Newness() {
                                 </p>
                             </div>
                         </div>
-                    </SplideSlide>
+                    </SplideSlide> */}
                 </Splide>
             </div>
         </div>

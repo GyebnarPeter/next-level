@@ -1,3 +1,7 @@
+.aboutPage {
+    padding-top: 66px;
+}
+
 .about {
     background: url(../../images/white-bg.webp) no-repeat center center;
     background-size: cover;
@@ -28,3 +32,8 @@
     }
 }
 
+@media screen and (min-width: 992px) {
+    .aboutPage {
+        padding-top: 132px;
+    }
+}
