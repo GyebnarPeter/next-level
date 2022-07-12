@@ -58,7 +58,7 @@ function Booking(props) {
     }, [bookingData]);
 
     return (
-        <form className="booking">
+        <section className="booking">
             <Title name="Foglalás" />
             <div className="container">
                 <h1>{props.name}</h1>
@@ -116,7 +116,7 @@ function Booking(props) {
                     />
                 )}
             </div>
-        </form>
+        </section>
     );
 }
 

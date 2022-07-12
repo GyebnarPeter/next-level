@@ -4,8 +4,11 @@ const axios = require("axios").default;
 
 function ImageUploader({ bookingData, setBookingData, setBookingPage }) {
     const [imageUrl, setImageUrl] = useState();
+    const [errorMessage, setErrorMessage] = useState("");
     
     const uploadHandler = (e) => {
+        setErrorMessage("");
+
         const file = e.target.files[0];
         setImageUrl(URL.createObjectURL(file));
 
@@ -26,12 +29,18 @@ function ImageUploader({ bookingData, setBookingData, setBookingPage }) {
             });
     }
 
-    const nextPage = () => {
-        setBookingPage("booking-summary");
+    const nextPage = (e) => {
+        e.preventDefault();
+
+        if(!imageUrl) {
+            setErrorMessage("Tölts fel képet!");
+        } else {
+            setBookingPage("booking-summary");
+        }
     }
 
     return (
-        <div className="imageUploader">
+        <form className="imageUploader" onSubmit={nextPage}>
             <div className="imageUploaderWrp">
                 <input type="file" className="image" onChange={ uploadHandler } />
                 <div className="upload">
@@ -47,8 +56,11 @@ function ImageUploader({ bookingData, setBookingData, setBookingPage }) {
                     </div>
                 </div>
             </div>
-            <button onClick={nextPage}>Tovább</button>
-        </div>
+            <input type="submit" value="Tovább" />
+            <p className="imageUploaderErrorText">
+                {errorMessage}
+            </p>
+        </form>
     );
 }
 
