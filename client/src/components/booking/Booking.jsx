@@ -36,7 +36,7 @@ function Booking(props) {
             game: props.name,
         });
 
-        const url = `http://localhost:8000/api/get-dates/2022-12-14`;
+        const url = `http://localhost:8000/api/get-dates/${date}`;
         const data = {
             date: date,
         };
@@ -58,7 +58,7 @@ function Booking(props) {
     }, [bookingData]);
 
     return (
-        <form className="booking">
+        <section className="booking">
             <Title name="Foglalás" />
             <div className="container">
                 <h1>{props.name}</h1>
@@ -116,7 +116,7 @@ function Booking(props) {
                     />
                 )}
             </div>
-        </form>
+        </section>
     );
 }
 

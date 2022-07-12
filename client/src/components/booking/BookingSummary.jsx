@@ -1,11 +1,25 @@
 import React from "react";
 import "./bookingSummary.css";
+const axios = require("axios").default;
 
 function BookingSummary({ bookingData, setBookingPage }) {
 
-  const nextPage = () => {
-    setBookingPage("booking-confirm");
-  }
+    const bookingSummaryHandler = async (e) => {
+        e.preventDefault();
+
+        const url = "http://localhost:8000/api/add-booking";
+
+        await axios
+            .post(url, bookingData)
+            .then(function(response) {
+                console.log(response.data);
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+
+        setBookingPage("booking-confirm");
+    };
 
     return (
         <div className="bookingSummary">
@@ -17,23 +31,37 @@ function BookingSummary({ bookingData, setBookingPage }) {
                     </div>
                     <div className="bookingItem">
                         <span className="bookingData">Létszám:</span>
-                        <span className="bookingValue">{bookingData.person}</span>
+                        <span className="bookingValue">
+                            {bookingData.person}
+                        </span>
                     </div>
                     <div className="bookingItem">
                         <span className="bookingData">Telefon:</span>
-                        <span className="bookingValue">{bookingData.phone}</span>
+                        <span className="bookingValue">
+                            {bookingData.phone}
+                        </span>
                     </div>
                     <div className="bookingItem">
                         <span className="bookingData">Email:</span>
-                        <span className="bookingValue">{bookingData.email}</span>
+                        <span className="bookingValue">
+                            {bookingData.email}
+                        </span>
                     </div>
                     <div className="bookingItem">
                         <span className="bookingData">Dátum:</span>
-                        <span className="bookingValue">{bookingData.fromDate}</span>
+                        <span className="bookingValue">
+                            {
+                              bookingData.fromDate.split(" ")[0]
+                            }
+                        </span>
                     </div>
                     <div className="bookingItem">
                         <span className="bookingData">Időpont:</span>
-                        <span className="bookingValue">{bookingData.time}</span>
+                        <span className="bookingValue">
+                          {
+                            bookingData.fromDate.split(" ")[1]
+                          }
+                        </span>
                     </div>
                 </div>
                 <div className="bookingItems">
@@ -44,42 +72,54 @@ function BookingSummary({ bookingData, setBookingPage }) {
                     <div className="bookingItem">
                         <span className="bookingData">Számlát kér:</span>
                         <span className="bookingValue">
-                          {
-                            bookingData.bill === 0 ? ( "Nem" ) : ( "Igen" )
-                          }
+                            {bookingData.bill === 0 ? "Nem" : "Igen"}
                         </span>
                     </div>
-                    {
-                      bookingData.bill === 1 && (
+                    {bookingData.bill === 1 && (
                         <>
-                          <div className="bookingItem">
-                            <span className="bookingData">Számlázási név:</span>
-                            <span className="bookingValue">{bookingData.billName}</span>
-                          </div>
-                          <div className="bookingItem">
-                              <span className="bookingData">Számlázási email:</span>
-                              <span className="bookingValue">{bookingData.billEmail}</span>
-                          </div>
-                          <div className="bookingItem">
-                              <span className="bookingData">Számlázási cím:</span>
-                              <span className="bookingValue">
-                                {bookingData.billAddress}
-                              </span>
-                          </div>
-                          <div className="bookingItem">
-                              <span className="bookingData">Számlázási telefon:</span>
-                              <span className="bookingValue">{bookingData.billPhone}</span>
-                          </div>
+                            <div className="bookingItem">
+                                <span className="bookingData">
+                                    Számlázási név:
+                                </span>
+                                <span className="bookingValue">
+                                    {bookingData.billName}
+                                </span>
+                            </div>
+                            <div className="bookingItem">
+                                <span className="bookingData">
+                                    Számlázási email:
+                                </span>
+                                <span className="bookingValue">
+                                    {bookingData.billEmail}
+                                </span>
+                            </div>
+                            <div className="bookingItem">
+                                <span className="bookingData">
+                                    Számlázási cím:
+                                </span>
+                                <span className="bookingValue">
+                                    {bookingData.billAddress}
+                                </span>
+                            </div>
+                            <div className="bookingItem">
+                                <span className="bookingData">
+                                    Számlázási telefon:
+                                </span>
+                                <span className="bookingValue">
+                                    {bookingData.billPhone}
+                                </span>
+                            </div>
                         </>
-                      )
-                    }
+                    )}
                     <div className="bookingItem">
                         <span className="bookingData">Megjegyzés:</span>
-                        <span className="bookingValue">{bookingData.comment}</span>
+                        <span className="bookingValue">
+                            {bookingData.comment}
+                        </span>
                     </div>
                 </div>
             </div>
-            <button onClick={nextPage}>Lefoglalom</button>
+            <button onClick={bookingSummaryHandler}>Lefoglalom</button>
         </div>
     );
 }

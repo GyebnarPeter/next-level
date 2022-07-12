@@ -41,7 +41,7 @@ export default function Header() {
                         />
                     </div>
                     <ul className="navList">
-                        <li className="navListItem"><Link to="/">Föoldal</Link></li>
+                        <li className="navListItem"><Link to="/">Főoldal</Link></li>
                         <li className="navListItem"><Link to="hasonmas">Hasonmás</Link></li>
                         <li className="navListItem"><Link to="rolunk">Rólunk</Link></li>
                         <li className="navListItem"><Link to="egyedi-ajanlatok">Egyedi ajánlatok</Link></li>

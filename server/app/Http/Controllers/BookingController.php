@@ -6,7 +6,8 @@ use App\Http\Requests\CreateBookingRequest;
 use App\Mail\BookingAdminMail;
 use App\Mail\BookingMail;
 use App\Models\Booking;
-use Illuminate\Http\JsonResponse;
+Use Illuminate\Support\Facades\File;
+use Illuminate\Foundation\Auth\User;use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
@@ -17,7 +18,8 @@ class BookingController extends Controller
     //
     function store(CreateBookingRequest $request): JsonResponse
     {
-        $file = $request->file('img');
+
+        $filename = $request->input('img');
 
         $booking = Booking::create([
             'name' => $request->input('name'),
@@ -25,19 +27,24 @@ class BookingController extends Controller
             'phone' => $request->input('phone'),
             'email' => $request->input('email'),
             'bill' => $request->input('bill'),
+            'bill_address' => $request->input('billAddress'),
+            'bill_name' => $request->input('billName'),
+            'bill_phone' => $request->input('billPhone'),
+            'bill_email' => $request->input('billEmail'),
             'comment' => $request->input('comment'),
-            'img' => $file,
-            'from_date' => $request->input('from_date'),
+            'img' => $filename,
+            'from_date' => $request->input('fromDate'),
             'game' => $request->input('game')
         ]);
 
-        $file->store('/uploads', ['disk' => 'public_uploads']);
+        File::move('temp_images/'.$filename, 'uploads/'.$filename);
 
         if (Mail::to($booking->email)->send(new BookingMail()) && Mail::to('info@nextlevel.hu')->send(new BookingAdminMail())) {
             return response()->json($booking);
         }
 
-        return response()->json($booking);
+        return response()->json('ok');
+
     }
 
     function delete($id)

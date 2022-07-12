@@ -23,11 +23,12 @@ function TimeSlots({
 
     const timeSlotHandler = (e) => {
         e.preventDefault();
+
         setBookingPage("booking_details");
         setTimeSlotsVisible(!timeSlotsVisible);
         setBookingData({
             ...bookingData,
-            time: e.target.id
+            fromDate: `${bookingData.fromDate} ${e.target.id}`
         });
     };
 
