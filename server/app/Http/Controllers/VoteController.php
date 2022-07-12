@@ -2,66 +2,82 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateVoteRequest;
 use App\Models\Vote;
 use App\Models\Voter;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class VoteController extends Controller
 {
     //
-    function create(Request $request) {
+    function create(CreateVoteRequest $request): JsonResponse
+    {
+        $vote = Vote::create([
+            'name' => $request->input('name'),
+            'subname' => $request->input('subname'),
+            'count' => $request->input('count')
+        ]);
 
-        $vote = new Vote();
-        $vote->name = $request->input('name');
-        $vote->subname = $request->input('subname');
-        $vote->count = $request->input('count');
-        $vote->save();
-
-        return $vote;
+        return response()->json($vote);
     }
 
-    function delete($id) {
+    function delete(int $id)
+    {
         $vote = Vote::find($id);
-        if ($vote->delete()) {
-            return "Sikeresen kitöröltem: " . $id;
-        } else {
-            return "Sikertelen törlés: " . $id;
+
+        if (!$vote) {
+            return response()->json(['message' => 'Nincs ilyen elem!'], 404);
         }
+
+        Vote::destroy($id);
+
+        return response()->json([], 204);
     }
 
-    function update(Request $request, $id)
+    function update(Request $request, int $id)
     {
         $email = $request->input('email');
+
+        if (!$email) {
+            return "Nincs megadva email!";
+        }
+
         $result = DB::table('voters')->where('email', $email)->first();
+
         if (!$result) {
             $vote = Vote::find($id);
             $vote->increment('count');
-            $voter = new Voter();
-            $voter->email = $email;
-            $voter->save();
+            Voter::create([
+                'email' => $email
+            ]);
             return $this->getAll();
         } else {
             return ["voted", $this->getAll()];
         }
     }
 
-    function get($id)
+    function get(int $id): JsonResponse
     {
         $vote = Vote::find($id);
-        return $vote;
+
+        if (!$vote) {
+            return response()->json(['message' => 'Nem található ilyen elem!'], 404);
+        }
+
+        return response()->json($vote);
     }
 
-    function getAll()
+    function getAll(): JsonResponse
     {
         $votes = Vote::all();
-        $array = array();
 
-        foreach ($votes as $vote)
-        {
-             array_push($array, $vote);
+        if (!$votes) {
+            return response()->json(['message' => 'Nem található elem!'], 404);
         }
-        return $array;
+
+        return response()->json($votes);
     }
 
 }
