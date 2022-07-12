@@ -40,7 +40,7 @@ class BookingAdminMail extends Mailable
                     'bill' => $request->input('bill'),
                     'comment' => $request->input('comment'),
                     'img' => $request->input('img'),
-                    'from_date' => $request->input('from_date'),
+                    'from_date' => $request->input('fromDate'),
                     'game' => $request->input('game')
                 ]);
     }
