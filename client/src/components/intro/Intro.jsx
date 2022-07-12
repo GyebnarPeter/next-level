@@ -7,6 +7,9 @@ export default function Intro() {
     return (
         <div className="intro">
             <div className="container">
+                <div className="openingText">
+                    <h3>Hamarosan nyitunk...</h3>
+                </div>
                 <div className="intro-ani">
                     <img src={logoAni} alt="next level logo" />
                 </div>

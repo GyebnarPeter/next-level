@@ -1,4 +1,4 @@
-table {
+.gameInfoPrice table {
     color: white;
     border: 1px solid var(--pink);
     border-radius: 20px;
@@ -10,21 +10,19 @@ table {
     padding-top: 10px;
 }
 
-td {
+.gameInfoPrice thead{
+    color: var(--pink);
+    font-weight: 700;
+}
+
+.gameInfoPrice td {
     padding-right: 50px;
     padding-top: 10px;
     padding-left: 10px;
 }
 
-.priceHighlight {
-    border-bottom: 2px solid var(--pink);
-    padding-top: 4px;
-    width: 200%;
-    margin-left: 10px;
-}
-
 @media screen and (min-width: 768px) {
-    table {
+    .gameInfoPrice table {
         margin-left: 0;
     }
 
