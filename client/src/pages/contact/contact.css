@@ -65,6 +65,12 @@
     margin: 5px;
 }
 
+@media screen and (min-width: 768px) {
+    .contactWrp {
+        padding: 50px 0;
+    }
+}
+
 @media screen and (min-width: 992px) {
     .contactBox:nth-child(1) {
         display: flex;
@@ -94,4 +100,3 @@
         padding-top: 50px;
     }
 }
-
