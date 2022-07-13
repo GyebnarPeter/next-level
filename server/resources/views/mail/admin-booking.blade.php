@@ -11,7 +11,14 @@ Számlás: Nem <br>
 @break
 @case(1)
 Számlás: Igen <br>
+<br>
+Számlázási adatok:<br>
+Név: {{$bill_name}}<br>
+Cím: {{$bill_address}}<br>
+Email: {{$bill_email}}<br>
+Telefonszám: {{$bill_phone}}<br>
 @endswitch
+<br>
 Időpont: {{$from_date}} <br>
 Játék: {{$game}} <br>
 @endcomponent

@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use http\Env\Response;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class FileController extends Controller
 {
     //
 
-    function store(Request $request)
+    function store(Request $request): JsonResponse
     {
 
         if($request->has('img'))
@@ -17,11 +19,11 @@ class FileController extends Controller
            $filename = $image->getClientOriginalName();
            $image->move('temp_images/', $filename);
 
-           return $filename;
+           return response()->json($filename);
         }
         else
         {
-            return 'No file';
+            return response()->json(['message' => 'no file'], 404);
         }
 
     }

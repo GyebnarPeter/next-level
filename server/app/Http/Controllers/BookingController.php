@@ -34,11 +34,16 @@ class BookingController extends Controller
             'game' => $request->input('game')
         ]);
 
-        if (!File::move('temp_images/'.$filename, 'uploads/'.$filename)) {
+        File::move('temp_images/'.$filename, 'uploads/'.$filename);
+
+        if (!File::exists('uploads/'.$filename)) {
             return response()->json(['message' => 'Sikertelen fájlfeltöltés!'], 404);
         }
 
-        if (!Mail::to($booking->email)->send(new BookingMail()) && !Mail::to('info@nextlevel.hu')->send(new BookingAdminMail())) {
+        Mail::to($booking->email)->send(new BookingMail());
+        Mail::to('info@nextlevel.hu')->send(new BookingAdminMail());
+
+        if (Mail::flushMacros()) {
             return response()->json(['message' => 'Email küldés sikertelen!'], 404);
         }
 
