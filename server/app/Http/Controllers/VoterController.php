@@ -2,53 +2,59 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateVoterRequest;
 use App\Models\Voter;
-use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 
 class VoterController extends Controller
 {
     //
-    function create(Request $request)
+    function create(CreateVoterRequest $request): JsonResponse
     {
-        $voter = new Voter();
+        $voter = Voter::create([
+            'email' => $request->input('email')
+        ]);
 
-        $voter->email = $request->input('email');
-        $voter->save();
+        if (!$voter) {
+            return response()->json(['message' => 'Nem lett megadva email!']);
+        }
 
-        return $voter;
+        return response()->json($voter);
     }
 
-    function delete($id)
-    {
-        $voter = Voter::find($id);
-        $voter->delete();
-
-        return "Sikeresen törölve: " . $voter->email;
-    }
-
-    function get($id)
+    function delete(int $id): JsonResponse
     {
         $voter = Voter::find($id);
 
-        return $voter->email;
+        if (!$voter) {
+            return response()->json(['message' => 'Nem található ilyen email cím!'], 404);
+        }
+
+        Voter::destroy($id);
+
+        return response()->json([], 204);
+
     }
 
-    function getAll()
+    function get(int $id): JsonResponse
+    {
+        $voter = Voter::find($id);
+
+        if (!$voter) {
+            return response()->json(['message' => 'Nem található ilyen email cím!'], 404);
+        }
+
+        return response()->json($voter);
+    }
+
+    function getAll(): JsonResponse
     {
         $voters = Voter::all();
 
-        foreach ($voters as $voter)
-        {
-            $array[] = [$voter];
+        if (!$voters) {
+            return response()->json(['message' => 'Nincsenek szavazók!'], 404);
         }
 
-        if (!empty($array))
-        {
-            return $array;
-        }
-        else
-        {
-            return "Nem található szavazó...";
-        }
+        return response()->json($voters);
     }
 }
