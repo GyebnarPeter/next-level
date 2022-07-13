@@ -6,7 +6,7 @@ Köszönjük, hogy felvetted velünk a kapcsolatot! Hamarosan válaszolunk neked
 @component('mail::subcopy')
 Ez az üzenet egy másolat.
 @endcomponent
-@component('mail::button', ['url' => 'http://localhost:3000'])
+@component('mail::button', ['url' => 'https://www.next-level.hu'])
 Látogass el weboldalunkra
 @endcomponent
 @endcomponent
