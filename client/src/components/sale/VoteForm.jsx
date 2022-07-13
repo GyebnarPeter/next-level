@@ -4,33 +4,27 @@ import VoteItem from "./VoteItem";
 import voteText from "./VoteText";
 import "./voteForm.css";
 import parse from 'html-react-parser';
-const axios = require("axios").default;
+import sendVote from "../../services/sendVote";
 
 function VoteForm({ setSendForm, setVoteState }) {
     const [value, setValue] = useState("");
     const [email, setEmail] = useState("");
     const message = useRef(email);
 
-    const submitForm = (e) => {
+    const submitForm = async (e) => {
         e.preventDefault();
 
         if(email === "" || value === "") {
             message.current.innerText = "Nem adtál meg email címet, vagy nem szavaztál!";
         } else {
-            const url = `http://localhost:8000/api/update-vote/${value}`;
             const data = {
                 email: email
             };
-    
-            axios
-                .put(url, data)
-                .then(function (response) {
-                    setVoteState(response.data);
-                    setSendForm(true);
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
+
+            const votes = await sendVote(value, data);
+            
+            setVoteState(votes);
+            setSendForm(true);
         }
     };
 

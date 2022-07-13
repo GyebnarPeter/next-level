@@ -1,32 +1,25 @@
 import React, { useState } from "react";
+import uploadImageService from "../../services/uploadImageService";
 import "./imageUploader.css";
-const axios = require("axios").default;
 
 function ImageUploader({ bookingData, setBookingData, setBookingPage }) {
     const [imageUrl, setImageUrl] = useState();
     const [errorMessage, setErrorMessage] = useState("");
+    const [images, setImages] = useState([]);
     
-    const uploadHandler = (e) => {
+    const uploadHandler = async (e) => {
         setErrorMessage("");
 
         const file = e.target.files[0];
         setImageUrl(URL.createObjectURL(file));
 
-        const url = "http://localhost:8000/api/add-temp";
         const data = new FormData();
         data.append('img', file);
 
-        axios
-            .post(url, data)
-            .then(function(response) {
-                setBookingData({
-                    ...bookingData,
-                    img: response.data
-                })
-            })
-            .catch(function(error) {
-                console.error(error);
-            });
+        const imageName = await uploadImageService(data);
+
+        setBookingData({ ...bookingData, img: imageName });
+        setImages([ ...images, imageName ]);
     }
 
     const nextPage = (e) => {
@@ -35,6 +28,7 @@ function ImageUploader({ bookingData, setBookingData, setBookingPage }) {
         if(!imageUrl) {
             setErrorMessage("Tölts fel képet!");
         } else {
+            setBookingData({ ...bookingData, tempImages: images })
             setBookingPage("booking-summary");
         }
     }
