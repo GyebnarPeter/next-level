@@ -23,7 +23,7 @@ class VoteController extends Controller
         return response()->json($vote);
     }
 
-    function delete(int $id)
+    function delete(int $id): JsonResponse
     {
         $vote = Vote::find($id);
 
@@ -36,12 +36,12 @@ class VoteController extends Controller
         return response()->json([], 204);
     }
 
-    function update(Request $request, int $id)
+    function update(Request $request, int $id): JsonResponse
     {
         $email = $request->input('email');
 
         if (!$email) {
-            return "Nincs megadva email!";
+            return response()->json(['message' => 'Nincs megadva email!'], 404);
         }
 
         $result = DB::table('voters')->where('email', $email)->first();
@@ -54,7 +54,7 @@ class VoteController extends Controller
             ]);
             return $this->getAll();
         } else {
-            return ["voted", $this->getAll()];
+            return response()->json(['voted', $this->getAll()->original]);
         }
     }
 
