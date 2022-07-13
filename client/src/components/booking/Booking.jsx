@@ -10,7 +10,7 @@ import BookingDetails from "./BookingDetails";
 import ImageUploader from "./ImageUploader";
 import BookingSummary from "./BookingSummary";
 import BookingConfirmation from "./BookingConfirmation";
-import getReservedTimes from "../../services/getReservedTimes";
+import getReservedTimesService from "../../services/getReservedTimesService";
 
 function Booking(props) {
     const [reservedTimes, setReservedTimes] = useState([]);
@@ -36,7 +36,7 @@ function Booking(props) {
             game: props.name,
         });
 
-        const times = await getReservedTimes(date);
+        const times = await getReservedTimesService(date);
 
         setReservedTimes(times);
         setTimeSlotsVisible(!timeSlotsVisible);

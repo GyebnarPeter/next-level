@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import uploadImage from "../../services/uploadImage";
+import uploadImageService from "../../services/uploadImageService";
 import "./imageUploader.css";
 
 function ImageUploader({ bookingData, setBookingData, setBookingPage }) {
@@ -16,7 +16,7 @@ function ImageUploader({ bookingData, setBookingData, setBookingPage }) {
         const data = new FormData();
         data.append('img', file);
 
-        const imageName = await uploadImage(data);
+        const imageName = await uploadImageService(data);
 
         setBookingData({ ...bookingData, img: imageName });
         setImages([ ...images, imageName ]);

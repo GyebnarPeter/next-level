@@ -20,6 +20,8 @@ function VotingStatus(props) {
             countRef.current += vote.count;
             setAllVotes(countRef.current);
         })
+
+        console.log(votes)
     }, [votes])
 
     return (

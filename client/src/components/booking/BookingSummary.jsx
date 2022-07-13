@@ -1,13 +1,13 @@
 import React from "react";
 import "./bookingSummary.css";
-import postBooking from "../../services/postBoooking";
+import postBookingService from "../../services/postBoookingService";
 
 function BookingSummary({ bookingData, setBookingPage }) {
 
     const bookingSummaryHandler = async (e) => {
         e.preventDefault();
 
-        await postBooking(bookingData);
+        await postBookingService(bookingData);
         setBookingPage("booking-confirm");
     };
 

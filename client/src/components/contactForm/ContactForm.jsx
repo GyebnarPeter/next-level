@@ -1,34 +1,23 @@
 import React from "react";
 import { useState } from "react";
+import sendEmailService from "../../services/sendEmailService";
 import "./contactForm.css";
-const axios = require("axios").default;
 
 function ContactForm() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
 
-    const submitForm = (e) => {
+    const submitForm = async (e) => {
         e.preventDefault();
         
-        const url = "http://localhost:8000/api/contact-form";
         const data = {
             name: name,
             email: email,
             message: message
         }
 
-        axios({
-            method: "post",
-            url: url,
-            data: data
-        })
-        .then(function(res) {
-            console.log(res.data)
-        })
-        .catch(function(err) {
-            console.error(err)
-        });
+        await sendEmailService(data);
     }
 
     return (
