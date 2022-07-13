@@ -16,10 +16,18 @@ export default function Contact() {
                             <img src={logo} alt="next level logo" />
                         </div>
                         <div className="icons">
-                            <a href="https://www.facebook.com/nextlevellogicplayground/" target="_blank">
+                            <a
+                                href="https://www.facebook.com/nextlevellogicplayground/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 <FaFacebook className="contactSocial" />
                             </a>
-                            <a href="https://www.instagram.com/nextlevel_logicplayground/" target="_blank">
+                            <a
+                                href="https://www.instagram.com/nextlevel_logicplayground/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 <FaInstagram className="contactSocial" />
                             </a>
                         </div>
@@ -40,10 +48,18 @@ export default function Contact() {
                                 <p>Vasárnap: 13.00 - 21.00</p>
                             </div>
                             <div className="icons">
-                                <a href="https://www.facebook.com/nextlevellogicplayground/" target="_blank">
+                                <a
+                                    href="https://www.facebook.com/nextlevellogicplayground/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
                                     <FaFacebook className="contactSocial" />
                                 </a>
-                                <a href="https://www.instagram.com/nextlevel_logicplayground/" target="_blank">
+                                <a
+                                    href="https://www.instagram.com/nextlevel_logicplayground/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
                                     <FaInstagram className="contactSocial" />
                                 </a>
                             </div>
