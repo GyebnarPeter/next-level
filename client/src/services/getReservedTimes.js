@@ -1,14 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 
-const getReservedTimes = async (url, data) => {
-    await axios
-        .get(url, data)
-        .then(function(response) {
-            return response.data;
-        })
-        .catch(function(error) {
-            console.log(error);
-        });
-};
+const getReservedTimes = async (time) => {
+    const response = await axios.get(`http://localhost:8000/api/dates/${time}`);
+    return response.data;
+}
 
-export default getReservedTimes;
+export default getReservedTimes

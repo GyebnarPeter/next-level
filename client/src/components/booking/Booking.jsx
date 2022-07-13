@@ -10,7 +10,7 @@ import BookingDetails from "./BookingDetails";
 import ImageUploader from "./ImageUploader";
 import BookingSummary from "./BookingSummary";
 import BookingConfirmation from "./BookingConfirmation";
-const axios = require("axios").default;
+import getReservedTimes from "../../services/getReservedTimes";
 
 function Booking(props) {
     const [reservedTimes, setReservedTimes] = useState([]);
@@ -20,7 +20,7 @@ function Booking(props) {
     const [bookingPage, setBookingPage] = useState("calendar");
     const [bookingData, setBookingData] = useState({});
 
-    async function changeDate(e) {
+    const changeDate = async (e) => {
         setDateState(e);
 
         let date = e
@@ -36,20 +36,9 @@ function Booking(props) {
             game: props.name,
         });
 
-        const url = `http://localhost:8000/api/get-dates/${date}`;
-        const data = {
-            date: date,
-        };
+        const times = await getReservedTimes(date);
 
-        await axios
-            .get(url, data)
-            .then(function(response) {
-                setReservedTimes(response.data);
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
-
+        setReservedTimes(times);
         setTimeSlotsVisible(!timeSlotsVisible);
     }
 

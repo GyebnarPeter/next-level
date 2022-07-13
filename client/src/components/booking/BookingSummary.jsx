@@ -1,23 +1,13 @@
 import React from "react";
 import "./bookingSummary.css";
-const axios = require("axios").default;
+import postBooking from "../../services/postBoooking";
 
 function BookingSummary({ bookingData, setBookingPage }) {
 
     const bookingSummaryHandler = async (e) => {
         e.preventDefault();
 
-        const url = "http://localhost:8000/api/add-booking";
-
-        await axios
-            .post(url, bookingData)
-            .then(function(response) {
-                console.log(response.data);
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
-
+        await postBooking(bookingData);
         setBookingPage("booking-confirm");
     };
 
