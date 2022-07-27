@@ -4,7 +4,7 @@ import VoteItem from "./VoteItem";
 import voteText from "./VoteText";
 import "./voteForm.css";
 import parse from 'html-react-parser';
-import sendVote from "../../services/sendVote";
+import sendVoteService from "../../services/sendVoteService";
 
 function VoteForm({ setSendForm, setVoteState }) {
     const [value, setValue] = useState("");
@@ -21,7 +21,7 @@ function VoteForm({ setSendForm, setVoteState }) {
                 email: email
             };
 
-            const votes = await sendVote(value, data);
+            const votes = await sendVoteService(value, data);
             
             setVoteState(votes);
             setSendForm(true);
