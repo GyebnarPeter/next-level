@@ -4,10 +4,13 @@ import logo from "../../images/next-level-logo.webp";
 import { FaFacebook } from "@react-icons/all-files/fa/FaFacebook";
 import { FaInstagram } from "@react-icons/all-files/fa/FaInstagram";
 import "./contact.css";
+import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
 
 export default function Contact() {
     return (
         <main className="contact">
+            <Header />
             <Title name="Kapcsolat" />
             <div className="contactWrp">
                 <div className="container">
@@ -67,6 +70,7 @@ export default function Contact() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </main>
     );
 }

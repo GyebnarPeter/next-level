@@ -1,10 +1,13 @@
 import React from "react";
+import Footer from "../../components/footer/Footer";
+import Header from "../../components/header/Header";
 import Title from "../../components/title/Title";
 import "./uniqueOffers.css";
 
 export default function UniqueOffers() {
     return (
         <div className="offers">
+            <Header />
             <Title name="Egyedi Ajánlatok" />
             <main className="uniqueOffers">
                 <div className="uniqueOffersText">
@@ -47,6 +50,7 @@ export default function UniqueOffers() {
                     </h3>
                 </div>
             </main>
+            <Footer />
         </div>
     );
 }

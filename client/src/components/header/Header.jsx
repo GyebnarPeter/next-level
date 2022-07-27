@@ -51,16 +51,16 @@ export default function Header() {
                             <Link to="/" onClick={closeNav}>Főoldal</Link>
                         </li>
                         <li className="navListItem">
-                            <Link to="hasonmas" onClick={closeNav}>Hasonmás</Link>
+                            <Link to="/hasonmas" onClick={closeNav}>Hasonmás</Link>
                         </li>
                         <li className="navListItem">
-                            <Link to="rolunk" onClick={closeNav}>Rólunk</Link>
+                            <Link to="/rolunk" onClick={closeNav}>Rólunk</Link>
                         </li>
                         <li className="navListItem">
-                            <Link to="egyedi-ajanlatok" onClick={closeNav}>Egyedi ajánlatok</Link>
+                            <Link to="/egyedi-ajanlatok" onClick={closeNav}>Egyedi ajánlatok</Link>
                         </li>
                         <li className="navListItem">
-                            <Link to="kapcsolat" onClick={closeNav}>Kapcsolat</Link>
+                            <Link to="/kapcsolat" onClick={closeNav}>Kapcsolat</Link>
                         </li>
                     </ul>
                 </nav>

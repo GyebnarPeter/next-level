@@ -11,10 +11,13 @@ import "./counterpart.css";
 // Import images
 import counterpart from "../../images/hasonmas-logo.webp";
 import background from "../../images/hasonmas_bg.webp";
+import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
 
 export default function Counterpart() {
     return (
         <div className="counterpart">
+            <Header />
             <GameIntro src={ counterpart } href="/" background={ background } />
             <CounterpartDescription />
             <GameInfo
@@ -31,6 +34,7 @@ export default function Counterpart() {
             />
             <Booking name="A hasonmás" />
             <Rules />
+            <Footer />
         </div>
     );
 }
