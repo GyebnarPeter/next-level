@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 function adminHome() {
-  return (
-    <div>adminHome</div>
-  )
+    return (
+        <div>
+            <button>button</button>
+        </div>
+    );
 }
 
-export default adminHome
+export default adminHome;
