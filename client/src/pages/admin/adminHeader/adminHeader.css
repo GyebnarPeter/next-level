@@ -1,0 +1,51 @@
+.adminHeader {
+    position: relative;
+}
+
+.adminHeaderTopbar {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #dee1e7;
+    padding: 0 15px;
+}
+
+.adminHeaderTopbar h2 {
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.adminHeaderTopbar h2 span {
+    color: var(--pink);
+}
+
+.adminNavBtn {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.adminNavBtn span {
+    width: 100%;
+    height: 3px;
+    background: var(--pink);
+}
+
+@media screen and (min-width: 992px) {
+    .adminHeaderTopbar {
+        display: none;
+    }
+
+    .adminHeaderWrp {
+        position: sticky;
+        top: 20px;
+        left: 0;
+    }
+}

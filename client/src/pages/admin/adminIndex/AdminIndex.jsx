@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import LogIn from "../logIn/LogIn";
-import AdminHome from "../adminHome/adminHome";
+import AdminHome from "./adminHome";
 import getCookie from "../cookie/getCookie"
 
 function AdminIndex() {
