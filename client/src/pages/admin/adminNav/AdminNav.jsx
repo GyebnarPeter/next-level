@@ -16,10 +16,12 @@ function AdminNav({navIsOpen, setNavIsOpen}) {
             style={navIsOpen ? {display: "block"} : {display: "none"}}
         >
             <div className="adminNavHeader">
-                <h1>
-                    Next Level
-                    <span> Admin</span>
-                </h1>
+                <Link to="/admin">
+                    <h1>
+                        Next Level
+                        <span> Admin</span>
+                    </h1>
+                </Link>
                 <AiOutlineClose 
                     className="AdminNavClose" 
                     onClick={() => setNavIsOpen(!navIsOpen)}
@@ -35,19 +37,19 @@ function AdminNav({navIsOpen, setNavIsOpen}) {
             <h2>Menü</h2>
             <ul className="adminMenu">
                 <li className="adminMenuItem">
-                    <Link to="">
+                    <Link to="/admin/foglalasok">
                         <AiOutlineCalendar />
                         <span>Foglalások</span>
                     </Link>
                 </li>
                 <li className="adminMenuItem">
-                    <Link to="">
+                    <Link to="/admin/szavazas">
                         <AiOutlineFund />
                         <span>Szavazás</span>
                     </Link>
                 </li>
                 <li className="adminMenuItem">
-                    <Link to="">
+                    <Link to="/admin/adminok">
                         <AiOutlineUser />
                         <span>Adminok</span>
                     </Link>

@@ -58,7 +58,6 @@ a {
 }
 
 .adminContainer {
-  padding: 0 15px;
   margin-top: 40px;
 }
 
@@ -67,6 +66,30 @@ a {
   min-height: calc(100vh - 55px);
   padding: 15px;
   border-radius: 5px;
+}
+
+.adminTable {
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+.adminTable thead td {
+  border-collapse: collapse;
+  font-size: 14px;
+  color: black;
+}
+ 
+.adminTable td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #DDD;
+  font-size: 14px;
+  color: #8a8a8a;
+}
+
+.adminSubHeader {
+  font-size: 14px;
+  
 }
 
 @media screen and (min-width: 768px) {
@@ -97,5 +120,9 @@ a {
     margin-left: 20px;
     box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.1);
     min-height: calc(100vh - 40px);
+  }
+
+  .adminTable td {
+    padding: 8px 12px;
   }
 }

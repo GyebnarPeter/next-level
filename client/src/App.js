@@ -7,6 +7,9 @@ import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
 import Counterpart from "./pages/counterpart/Counterpart";
 import AdminIndex from "./pages/admin/adminIndex/AdminIndex";
+import ReservationLogin from "./pages/admin/reservation/ReservationLogin";
+import UsersLogin from "./pages/admin/users/UsersLogin";
+import VoteAdminLogin from "./pages/admin/vote/VoteAdminLogin";
 
 console.log(new Array(5).join("a"-10) + " Batman!")
 
@@ -21,6 +24,9 @@ function App() {
                     <Route path="/egyedi-ajanlatok" element={<UniqueOffers />} />
                     <Route path="/kapcsolat" element={<Contact />} />
                     <Route path="/admin" element={<AdminIndex />} />
+                    <Route path="/admin/foglalasok" element={<ReservationLogin />} />
+                    <Route path="/admin/adminok" element={<UsersLogin />} />
+                    <Route path="/admin/szavazas" element={<VoteAdminLogin />} />
                 </Routes>
             </ScrollToTop>
         </Router>
