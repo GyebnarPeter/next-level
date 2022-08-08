@@ -1,0 +1,14 @@
+.adminCalendar {
+    margin: 0 0 50px 0;
+    max-width: 500px;
+}
+
+.modifiesBtn {
+    border: none;
+    background: lightseagreen;
+    color: white;
+    border-radius: 5px;
+    padding: 3px 6px;
+    cursor: pointer;
+    font-size: 12px;
+}

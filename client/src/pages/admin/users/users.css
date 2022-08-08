@@ -1,0 +1,28 @@
+.passwordBtn {
+    border: none;
+    background: lightgreen;
+    color: white;
+    border-radius: 5px;
+    padding: 3px 6px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.deleteBtn {
+    border: none;
+    background: lightcoral;
+    color: white;
+    border-radius: 5px;
+    padding: 3px 6px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.regBtn {
+    border: none;
+    background: var(--pink);
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
