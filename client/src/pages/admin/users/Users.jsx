@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "./users.css";
 import AdminHeader from "../adminHeader/AdminHeader";
 import { IoPeopleSharp } from "react-icons/io5";
 import AdminTitle from "../../../components/adminTitle/AdminTitle";
+import { useEffect } from "react";
+import axios from "axios";
 
 function Users() {
+    /* const [admins, setAdmins] = useState();
+
+    const getAdmins = async () => {
+        const response = await axios.get("http://localhost:8000/api/admins");
+        setAdmins(response.data);
+        console.log(admins);
+        console.log(1);
+    };
+
+    useEffect(() => {
+        getAdmins();
+    }, []); */
+
     return (
         <div className="adminPage">
             <div className="adminContainer">
@@ -26,30 +41,42 @@ function Users() {
                                 <td>david</td>
                                 <td>david@hosselhoff.com</td>
                                 <td>
-                                    <button className="passwordBtn">Jelszó</button>
+                                    <button className="passwordBtn">
+                                        Jelszó
+                                    </button>
                                 </td>
                                 <td>
-                                    <button className="deleteBtn">Törlés</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>david</td>
-                                <td>david@hosselhoff.com</td>
-                                <td>
-                                    <button className="passwordBtn">Jelszó</button>
-                                </td>
-                                <td>
-                                    <button className="deleteBtn">Törlés</button>
+                                    <button className="deleteBtn">
+                                        Törlés
+                                    </button>
                                 </td>
                             </tr>
                             <tr>
                                 <td>david</td>
                                 <td>david@hosselhoff.com</td>
                                 <td>
-                                    <button className="passwordBtn">Jelszó</button>
+                                    <button className="passwordBtn">
+                                        Jelszó
+                                    </button>
                                 </td>
                                 <td>
-                                    <button className="deleteBtn">Törlés</button>
+                                    <button className="deleteBtn">
+                                        Törlés
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>david</td>
+                                <td>david@hosselhoff.com</td>
+                                <td>
+                                    <button className="passwordBtn">
+                                        Jelszó
+                                    </button>
+                                </td>
+                                <td>
+                                    <button className="deleteBtn">
+                                        Törlés
+                                    </button>
                                 </td>
                             </tr>
                         </tbody>

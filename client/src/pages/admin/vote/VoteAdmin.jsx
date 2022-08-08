@@ -11,7 +11,7 @@ function VoteAdmin() {
     const [roomTwoVotes, setRoomTwoVotes] = useState([]);
     const [roomThreeVotes, setRoomThreeVotes] = useState([]);
     const [roomFourVotes, setRoomFourVotes] = useState([]);
-    const [voters, setVoters] = useState();
+    const [voters, setVoters] = useState([]);
 
     const getVotes = async () => {
         const response = await axios.get('http://localhost:8000/api/votes');
@@ -20,15 +20,15 @@ function VoteAdmin() {
         setRoomThreeVotes(response.data[2].count);
         setRoomFourVotes(response.data[3].count);
     }
-
-    const getVoters = async () => {
-        const response = await axios.get(`http://localhost:8000/api/voters'`);
-        console.log(response)
-    }
     
     useEffect(() => {
         getVotes();
-        getVoters();
+        
+        axios
+            .get('http://localhost:8000/api/voters')
+            .then(res => {
+                setVoters(res.data);
+            })
     }, [])
 
     return (
@@ -60,30 +60,16 @@ function VoteAdmin() {
                         <h3 className="adminSubHeader">Szavazó email címek</h3>
                         <table className="adminTable">
                             <tbody>
-                                <tr>
-                                    <td>#1</td>
-                                    <td>nextlevel@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>#2</td>
-                                    <td>nextlevel@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>#3</td>
-                                    <td>nextlevel@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>#4</td>
-                                    <td>nextlevel@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>#5</td>
-                                    <td>nextlevel@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>#6</td>
-                                    <td>nextlevel@gmail.com</td>
-                                </tr>
+                                {
+                                    voters.map(voter => {
+                                        return (
+                                            <tr key={voter.id}>
+                                                <td># {voter.id}</td>
+                                                <td>{voter.email}</td>
+                                            </tr>
+                                        )
+                                    })
+                                }
                             </tbody>
                         </table>
                     </div>
