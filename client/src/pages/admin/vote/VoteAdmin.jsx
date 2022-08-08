@@ -11,17 +11,24 @@ function VoteAdmin() {
     const [roomTwoVotes, setRoomTwoVotes] = useState([]);
     const [roomThreeVotes, setRoomThreeVotes] = useState([]);
     const [roomFourVotes, setRoomFourVotes] = useState([]);
+    const [voters, setVoters] = useState();
 
     const getVotes = async () => {
-        const response = await axios.get(`http://localhost:8000/api/votes`);
+        const response = await axios.get('http://localhost:8000/api/votes');
         setRoomOneVotes(response.data[0].count);
         setRoomTwoVotes(response.data[1].count);
         setRoomThreeVotes(response.data[2].count);
         setRoomFourVotes(response.data[3].count);
     }
+
+    const getVoters = async () => {
+        const response = await axios.get(`http://localhost:8000/api/voters'`);
+        console.log(response)
+    }
     
     useEffect(() => {
         getVotes();
+        getVoters();
     }, [])
 
     return (
