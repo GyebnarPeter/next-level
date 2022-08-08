@@ -2,60 +2,109 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
 
 
 class AdminController extends Controller
 {
-    function create(Request $request)
+    function create(RegisterRequest $request): JsonResponse
     {
-        $admin = new Admin();
-        $admin->name = $request->input('name');
-        $admin->email = $request->input('email');
-        $admin->username = $request->input('username');
-        $admin->password = Hash::make($request->input('password'));
-        $admin->save();
-        return $admin;
+        $admin = Admin::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'username' => $request->input('username'),
+            'password' => Hash::make($request->input('password'))
+        ]);
+
+        $token = $admin->createToken('register-nextlevel-token')->plainTextToken;
+
+        $response = [
+            'admin' => $admin,
+            'token' => $token
+        ];
+
+        return response()->json($response, 201);
     }
 
-    function delete($id)
+    function delete(int $id): JsonResponse
     {
         $admin = Admin::find($id);
 
-        if ($admin->delete()) {
-            return "Sikeresen töröltem a(z) " . $admin->name;
-        } else {
-            return "Sikertelen törlés";
+        if (!$admin) {
+            return response()->json(['message' => 'Admin nem található.'], 404);
         }
+
+        Admin::destroy($id);
+
+        return response()->json([], 204);
     }
 
-    function update(Request $request, $id)
+    //NOT ABLE TO CHANGE PASSWORD
+    function update(Request $request, int $id): JsonResponse
     {
         $admin = Admin::find($id);
-        $admin->update($request->all());
 
-        return $admin;
+        if (!$admin) {
+            return response()->json(['message' => 'Admin nem található.'], 404);
+        }
+
+        $admin->update($request->all());
+        return response()->json($admin);
     }
 
-    function getAll()
+    function getAll(): JsonResponse
     {
         $admins = Admin::all();
 
-        foreach ($admins as $admin)
-        {
-            $array[] = [$admin];
+        if (!$admins) {
+            return response()->json(['message' => 'Nem található egy admin sem!'], 404);
         }
-        return $array;
+
+        return response()->json($admins);
     }
 
-    function get($id)
+    function get($id): JsonResponse
     {
         $admin = Admin::find($id);
 
-        return $admin;
+        if (!$admin) {
+            return response()->json(['message' => 'Nem található ilyen admin!'], 404);
+        }
+
+        return response()->json($admin);
+    }
+
+    function login(LoginRequest $request) :JsonResponse
+    {
+        $admin = Admin::where('username', $request->input('username'))->first();
+
+        if (!$admin || !Hash::check($request->input('password'), $admin->password)) {
+            return response()->json([
+                'message' => 'Hibás felhasználónév / jelszó.'
+            ], 401);
+        }
+
+        $token = $admin->createToken('nextlevel-app-token', [$admin->role])->plainTextToken;
+
+        $response = [
+          'admin' => $admin,
+          'token' => $token
+        ];
+
+        return response()->json($response, 202);
+    }
+
+    function logout(): Response
+    {
+        auth()->user()->tokens()->delete();
+
+        return response()->noContent();
     }
 
 }
