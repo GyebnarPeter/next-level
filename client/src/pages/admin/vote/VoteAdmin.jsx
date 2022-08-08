@@ -3,8 +3,27 @@ import "./voteAdmin.css";
 import AdminHeader from "../adminHeader/AdminHeader";
 import { IoBarChart } from "react-icons/io5";
 import AdminTitle from "../../../components/adminTitle/AdminTitle";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function VoteAdmin() {
+    const [roomOneVotes, setRoomOneVotes] = useState([]);
+    const [roomTwoVotes, setRoomTwoVotes] = useState([]);
+    const [roomThreeVotes, setRoomThreeVotes] = useState([]);
+    const [roomFourVotes, setRoomFourVotes] = useState([]);
+
+    const getVotes = async () => {
+        const response = await axios.get(`http://localhost:8000/api/votes`);
+        setRoomOneVotes(response.data[0].count);
+        setRoomTwoVotes(response.data[1].count);
+        setRoomThreeVotes(response.data[2].count);
+        setRoomFourVotes(response.data[3].count);
+    }
+    
+    useEffect(() => {
+        getVotes();
+    }, [])
+
     return (
         <div className="adminPage">
             <div className="adminContainer">
@@ -24,10 +43,10 @@ function VoteAdmin() {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>12</td>
-                                    <td>24</td>
-                                    <td>56</td>
-                                    <td>37</td>
+                                    <td>{ roomOneVotes }</td>
+                                    <td>{ roomTwoVotes }</td>
+                                    <td>{ roomThreeVotes }</td>
+                                    <td>{ roomFourVotes }</td>
                                 </tr>
                             </tbody>
                         </table>

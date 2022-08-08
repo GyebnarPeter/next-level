@@ -2,27 +2,38 @@ import React from "react";
 import "./logIn.css";
 import adminIll from "../../../images/admin-ill.webp";
 import { useState } from "react";
+import axios from 'axios';
 
 function LogIn({ setIsLogin }) {
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, seterrorMessage] = useState(false);
 
-    const login = (e) => {
+    const login = async (e) => {
         e.preventDefault();
 
-        if(email === "admin@admin" && password === "admin") {
-            setIsLogin(true);
-
-            const now = new Date();
-            const time = now.getTime();
-            const expireTime = time + 86400 * 1000;
-            now.setTime(expireTime);
-            document.cookie = `login=true;expires=${now.toUTCString()}`;
-            
-        } else {
-            seterrorMessage(true);
+        const data = {
+            username: username,
+            password: password
         }
+
+        await axios
+            .post("http://localhost:8000/api/login", data)
+            .then(res => {
+                console.log(res.data);
+
+                setIsLogin(true);
+
+                const now = new Date();
+                const time = now.getTime();
+                const expireTime = time + 86400 * 1000;
+                now.setTime(expireTime);
+                document.cookie = `login=true;expires=${now.toUTCString()}`;
+            })
+            .catch(error => {
+                console.error(error);
+                seterrorMessage(true);
+            })
     }
 
     return (
@@ -45,9 +56,9 @@ function LogIn({ setIsLogin }) {
                     </div>
                     <form className="adminForm" onSubmit={login}>
                         <input
-                            type="email"
-                            placeholder="Email"
-                            onChange={(e) => setEmail(e.target.value)}
+                            type="text"
+                            placeholder="Felhasználónév"
+                            onChange={(e) => setUsername(e.target.value)}
                         />
                         <input
                             type="text"
