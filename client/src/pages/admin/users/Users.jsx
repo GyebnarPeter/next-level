@@ -7,18 +7,16 @@ import { useEffect } from "react";
 import axios from "axios";
 
 function Users() {
-    /* const [admins, setAdmins] = useState();
-
-    const getAdmins = async () => {
-        const response = await axios.get("http://localhost:8000/api/admins");
-        setAdmins(response.data);
-        console.log(admins);
-        console.log(1);
-    };
+    const [admins, setAdmins] = useState([]);
 
     useEffect(() => {
-        getAdmins();
-    }, []); */
+        axios
+            .get('http://localhost:8000/api/admins')
+            .then(res => {
+                setAdmins(res.data);
+                console.log(res.data);
+            })
+    }, [])
 
     return (
         <div className="adminPage">
@@ -37,48 +35,26 @@ function Users() {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>david</td>
-                                <td>david@hosselhoff.com</td>
-                                <td>
-                                    <button className="passwordBtn">
-                                        Jelszó
-                                    </button>
-                                </td>
-                                <td>
-                                    <button className="deleteBtn">
-                                        Törlés
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>david</td>
-                                <td>david@hosselhoff.com</td>
-                                <td>
-                                    <button className="passwordBtn">
-                                        Jelszó
-                                    </button>
-                                </td>
-                                <td>
-                                    <button className="deleteBtn">
-                                        Törlés
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>david</td>
-                                <td>david@hosselhoff.com</td>
-                                <td>
-                                    <button className="passwordBtn">
-                                        Jelszó
-                                    </button>
-                                </td>
-                                <td>
-                                    <button className="deleteBtn">
-                                        Törlés
-                                    </button>
-                                </td>
-                            </tr>
+                            {
+                               admins.map( admin => {
+                                    return(
+                                        <tr key={admin.id}>
+                                            <td>{admin.username}</td>
+                                            <td>{admin.email}</td>
+                                            <td>
+                                                <button className="passwordBtn">
+                                                    Jelszó
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button className="deleteBtn">
+                                                    Törlés
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    )
+                               })
+                            }
                         </tbody>
                     </table>
                     <button className="regBtn">Regisztráció</button>
