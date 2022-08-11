@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const sendEmailService = async (data) => {
-    await axios.post("http://localhost:8000/api/contact-form", data);
+    await axios.post("/server/public/api/contact-form", data);
 }
 
 export default sendEmailService
