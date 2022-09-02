@@ -8,7 +8,7 @@ Web app created with React and Laravel.
 * [Setup](#setup)
 
 ## General info
-This project is an web app of an imagine escape room Next Level. Contains booking, voting and email sending option.
+This project is a web app of an imagine escape room Next Level. Contains booking, voting and email sending option.
 
 ## Technologies
 Project is created with
